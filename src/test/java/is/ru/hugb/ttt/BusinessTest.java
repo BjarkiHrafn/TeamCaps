@@ -9,7 +9,7 @@ public class BusinessTest{
 	@Test
     public void testInitializeBoard() {
         char[][] board = Business.initializeBoard();
-		
+
 		int cellCounter = 49;
 		for(int i = 0; i < 3; i++){
 			for(int j = 0; j < 3; j++){
@@ -18,4 +18,16 @@ public class BusinessTest{
 			}
 		}
     }
+
+		@Test
+		public void testConvertXtoY ()
+		{
+			int[] array = Business.convertToXY(9);
+			int[] array2 = Business.convertToXY(1);
+
+			assertEquals(2 , array[0]);
+			assertEquals(2, array[1]);
+			assertEquals(0, array2[0]);
+			assertEquals(0, array2[1]);
+		}
 }
