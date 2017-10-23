@@ -1,6 +1,5 @@
 package is.ru.hugb.ttt;
 
-import java.util.Hashtable;
 import java.io.IOException;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -10,7 +9,7 @@ import java.util.Scanner;
 public class Interface{
 	
 	private Business business;
-	private char[][] board;
+	private static char[][] board;
 	
 	public Interface(){
 		business = new Business();
@@ -19,9 +18,12 @@ public class Interface{
 	
 	private static void printBoard()
 	{
-		
-		
-		
+		for(int i = 0; i < 3; i++){
+			for(int j = 0; j < 3; j++){
+				System.out.print(board[i][j] + " ");
+			}
+			System.out.println();
+		}
 	}
 	
 	public static  void main(String[] args){
