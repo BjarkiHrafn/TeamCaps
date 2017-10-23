@@ -7,7 +7,15 @@ import org.junit.rules.ExpectedException;
 
 public class BusinessTest{
 	@Test
-    public void testSum() {
-        assertEquals(18, Business.sum(5, 13));
+    public void testInitializeBoard() {
+        char[][] board = Business.initializeBoard();
+		
+		int cellCounter = 49;
+		for(int i = 0; i < 3; i++){
+			for(int j = 0; j < 3; j++){
+				assertEquals((char)cellCounter, board[i][j]);
+				cellCounter++;
+			}
+		}
     }
 }

@@ -6,8 +6,5 @@ import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
 public class InterfaceTest{
-	@Test
-    public void testHelloWorld() {
-        assertEquals("Hello world!", Interface.helloWorld());
-    }
+	
 }
