@@ -9,7 +9,7 @@ import java.util.Scanner;
 public class Interface{
 	
 	private Business business;
-	private char[][] board;
+	private static char[][] board;
 	
 	public Interface(){
 		business = new Business();
