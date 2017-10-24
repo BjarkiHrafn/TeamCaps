@@ -28,7 +28,7 @@ public class Interface{
 	
 	public static  void main(String[] args){
 		Scanner in = new Scanner(System.in);
-        
-		printBoard();
+        Interface test = new Interface();
+		test.printBoard();
 	}
 }
