@@ -30,4 +30,11 @@ public class BusinessTest{
 			assertEquals(0, array2[0]);
 			assertEquals(0, array2[1]);
 		}
+		
+		@Test
+		public void testXOrO(){
+			
+			assertEquals('X', Business.playerXorO(0));
+			assertEquals('O', Business.playerXorO(1));
+		}
 }
