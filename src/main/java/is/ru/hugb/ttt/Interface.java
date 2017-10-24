@@ -8,12 +8,14 @@ import java.util.Scanner;
 
 public class Interface{
 	
-	private Business business;
+	private static Business business;
 	private static char[][] board;
+	private static int playerCounter;
 	
 	public Interface(){
 		business = new Business();
 		board = business.initializeBoard();
+		playerCounter = 0;
 	}
 	
 	private static void printBoard()
@@ -25,10 +27,25 @@ public class Interface{
 			System.out.println();
 		}
 	}
+	private static void userInteraction(){
+		
+		Scanner read = new Scanner(System.in);
+		char player = business.playerXorO(playerCounter);
+		playerCounter ++;
+
+		System.out.println("Player " + player + ": ");
+		
+		System.out.print("Input: ");
+		int userInput = read.nextInt();
+		read.close();
+		System.out.println();
+		
+	}
 	
-	public static  void main(String[] args){
-		Scanner in = new Scanner(System.in);
-        Interface test = new Interface();
+	public static  void main(String[] args){  
+		printBoard();
+		userInteraction();
+    Interface test = new Interface();
 		test.printBoard();
 	}
 }
