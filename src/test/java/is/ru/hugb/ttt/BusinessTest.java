@@ -51,4 +51,55 @@ public class BusinessTest{
     assertEquals(false, Business.checkIfInRange(10));
     assertEquals(false, Business.checkIfInRange(-1));
   }
+  
+  @Test
+  public void testIsGameWonCrosses(){
+	  char[][] board = Business.initializeBoard();
+	  board[0][0] = 'X';
+	  board[1][1] = 'X';
+	  board[2][2] = 'X';
+	  assertEquals(true, Business.isGameWon(board));
+	  
+	  board = Business.initializeBoard();
+	  board[0][2] = 'O';
+	  board[1][1] = 'O';
+	  board[2][0] = 'O';
+	  assertEquals(true, Business.isGameWon(board));
+  }
+  
+  @Test
+  public void testIsGameWonLinesHorizontal(){
+	  char[][] board = Business.initializeBoard();
+	  for(int i = 0; i < 3; i++){
+		  board = Business.initializeBoard();
+		  board[0][i] = 'X';
+		  board[1][i] = 'X';
+		  board[2][i] = 'X';
+		  assertEquals(true, Business.isGameWon(board));
+	  }
+  }
+  
+  @Test
+  public void testIsGameWonLinesVertical(){
+	  char[][] board = Business.initializeBoard();
+	  for(int i = 0; i < 3; i++){
+		  board = Business.initializeBoard();
+		  board[i][0] = 'O';
+		  board[i][1] = 'O';
+		  board[i][2] = 'O';
+		  assertEquals(true, Business.isGameWon(board));
+	  }
+  }
+  
+  @Test
+  public void testIsGameWonVerticalFail(){
+	  char[][] board = Business.initializeBoard();
+	  for(int i = 0; i < 3; i++){
+		  board = Business.initializeBoard();
+		  board[i][0] = 'O';
+		  board[i][1] = 'O';
+		  board[i][2] = 'X';
+		  assertEquals(false, Business.isGameWon(board));
+	  }
+  }
 }
