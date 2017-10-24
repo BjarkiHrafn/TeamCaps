@@ -19,27 +19,32 @@ public class BusinessTest{
 		}
 	}
 
-		@Test
-		public void testConvertXtoY(){
-			int[] array = Business.convertToXY(9);
-			int[] array2 = Business.convertToXY(1);
+  @Test
+  public void testConvertXtoY(){
+    int[] array = Business.convertToXY(9);
+    int[] array2 = Business.convertToXY(1);
 
-			assertEquals(2, array[0]);
-			assertEquals(2, array[1]);
-			assertEquals(0, array2[0]);
-			assertEquals(0, array2[1]);
-		}
+    assertEquals(2, array[0]);
+    assertEquals(2, array[1]);
+    assertEquals(0, array2[0]);
+    assertEquals(0, array2[1]);
+  }
 
-		@Test
-		public void testCheckIfOccupied(){
-			char[][] board = Business.initializeBoard();
-			board[0][0] = 'X';
-			board[2][2] = 'O';
+  @Test
+  public void testXOrO(){
 
-			assertEquals(true, Business.checkIfOccupied(board, 0, 0));
-			assertEquals(true, Business.checkIfOccupied(board, 2, 2));
-			assertEquals(false, Business.checkIfOccupied(board, 1, 2));
-		}
+    assertEquals('X', Business.playerXorO(0));
+    assertEquals('O', Business.playerXorO(1));
+  }
 
+  @Test
+  public void testCheckIfOccupied(){
+    char[][] board = Business.initializeBoard();
+    board[0][0] = 'X';
+    board[2][2] = 'O';
 
+    assertEquals(true, Business.checkIfOccupied(board, 0, 0));
+    assertEquals(true, Business.checkIfOccupied(board, 2, 2));
+    assertEquals(false, Business.checkIfOccupied(board, 1, 2));
+  }
 }

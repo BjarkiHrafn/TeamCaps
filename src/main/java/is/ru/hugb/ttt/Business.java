@@ -1,6 +1,7 @@
 package is.ru.hugb.ttt;
 
 public class Business{
+	
 
 	public static char[][] initializeBoard(){
 		char board[][] = new char[3][3];
@@ -16,7 +17,19 @@ public class Business{
 		return board;
 	}
 
-	public static int[] convertToXY(int input){
+	public static char playerXorO(int player){
+		
+		char XorO = 'F';
+		
+		if(player%2 == 0)
+			XorO = 'X';
+		else
+			XorO = 'O';
+		
+		return XorO;
+  }
+	
+  public static int[] convertToXY(int input){
 		int x;
 		int y;
 		input = input - 1;
