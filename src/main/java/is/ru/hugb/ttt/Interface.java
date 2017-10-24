@@ -43,9 +43,8 @@ public class Interface{
 	}
 	
 	public static  void main(String[] args){  
-		printBoard();
-		userInteraction();
-    Interface test = new Interface();
+		Interface test = new Interface();
 		test.printBoard();
+		test.userInteraction();
 	}
 }
