@@ -18,7 +18,7 @@ public class BusinessTest{
 			}
 		}
 	}
-
+  
   @Test
   public void testConvertXtoY(){
     int[] array = Business.convertToXY(9);
@@ -31,13 +31,6 @@ public class BusinessTest{
   }
 
   @Test
-  public void testXOrO(){
-
-    assertEquals('X', Business.playerXorO(0));
-    assertEquals('O', Business.playerXorO(1));
-  }
-
-  @Test
   public void testCheckIfOccupied(){
     char[][] board = Business.initializeBoard();
     board[0][0] = 'X';
@@ -46,5 +39,16 @@ public class BusinessTest{
     assertEquals(true, Business.checkIfOccupied(board, 0, 0));
     assertEquals(true, Business.checkIfOccupied(board, 2, 2));
     assertEquals(false, Business.checkIfOccupied(board, 1, 2));
+  }
+
+  @Test
+  public void testCheckIfInRange(){
+
+    for(int i = 1; i < 10; i++){
+      assertEquals(true, Business.checkIfInRange(i));
+    }
+
+    assertEquals(false, Business.checkIfInRange(10));
+    assertEquals(false, Business.checkIfInRange(-1));
   }
 }

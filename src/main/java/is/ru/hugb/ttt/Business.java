@@ -46,4 +46,12 @@ public class Business{
 		}
 		return false;
 	}
+
+	public static boolean checkIfInRange(int input){
+			if(input > 9 || input < 1){
+					return false;
+			}
+
+			return true;
+	}
 }
