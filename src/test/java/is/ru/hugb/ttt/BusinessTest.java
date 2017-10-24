@@ -41,5 +41,16 @@ public class BusinessTest{
 			assertEquals(false, Business.checkIfOccupied(board, 1, 2));
 		}
 
+		@Test
+		public void testCheckIfInRange(){
+
+			for(int i = 1; i < 10; i++){
+				assertEquals(true, Business.checkIfInRange(i));
+			}
+
+			assertEquals(false, Business.checkIfInRange(10));
+			assertEquals(false, Business.checkIfInRange(-1));
+		}
+
 
 }
