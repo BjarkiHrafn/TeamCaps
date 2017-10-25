@@ -111,7 +111,5 @@ public class BusinessTest{
 	  b.updateBoard('X', 9);
 	  
 	  assertEquals('X', b.board[2][2]);
-	  
-	  
   }
 }

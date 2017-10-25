@@ -94,6 +94,6 @@ public class Business{
 		//XorO = playerXorO(input);
 		
 		
-		board[coordinates[1]][coordinates[0]] = XorO;
+		board[coordinates[0]][coordinates[1]] = XorO;
 	}
 }

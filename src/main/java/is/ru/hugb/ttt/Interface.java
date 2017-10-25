@@ -30,28 +30,42 @@ public class Interface{
 	private static void userInteraction(){
 		
 		Scanner read = new Scanner(System.in);
-		char player = business.playerXorO(playerCounter);
-		
-		
-		System.out.println("Player " + player + ": ");
-		
-		System.out.print("Input: ");
-		int userInput = read.nextInt();
-		read.close();
-		System.out.println();
-		business.updateBoard(player, userInput);
-		playerCounter ++;
-		printBoard();
-		
-		
+		char player = ' ';
+		while(!business.isGameWon(board) && playerCounter < 9){
+			
+			printBoard();
+			player = business.playerXorO(playerCounter);
+			
+			System.out.println("Player " + player + ": ");
+			
+			int userInput = 99;
+			while(!business.checkIfInRange(userInput)) {
+				System.out.print("Input: ");
+				userInput = read.nextInt();
+				if(!business.checkIfInRange(userInput)) {
+					System.out.println("Invalid input, try again");
+				}
+			}
+			//read.close();
+			
+			System.out.println("poo");
+			business.updateBoard(player, userInput);
+			playerCounter ++;
+			
+		}
+		if(playerCounter >= 9) {
+			System.out.println("Draw!");
+		}
+		else {
+			printBoard();
+			System.out.println("Player: " + player + " wins!");
+		}
 	}
-	
-	
 	
 	public static  void main(String[] args){  
 		
 		Interface test = new Interface();
-		test.printBoard();
+		//test.printBoard();
 		test.userInteraction();
 	}
 }
