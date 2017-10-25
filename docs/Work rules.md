@@ -1,32 +1,34 @@
 Work rules
 ==========
 
-#concerning git operations
+Concerning git operations
+-------------------------
 
 ##commit 
 
-* Write only in english,
-* all comments should be descreptive for what is to be pushed to git
+* Write only in english.
+* all comments should be descreptive for what is to be pushed to git.
 		 
 ##add
 
-* Under no circumstances should you write git add .
-* instead write git add -p and choose yes or no.
+* Under no circumstances should you use the command "git add .".
+* Instead use the command "git add -p" and choose yes or no.
 		 
+Concerning coding practices and rules
+-------------------------------------
 
-# FUNCTIONS IN INTERFACE AND BUSINESS CLASSES
+##code
 
-## BUISNESS
+* Allways use tabs over spaces when indenting code.
+* Use curlybraces right after all loops, function, classes etc.
 
-* void initializeBoard() // creates the board
-* void updateBoard()     // updates the board after a player makes a move
-* Boolean inputCheck()	 // checks if the input has been taken
-* Boolean checkRange()	 // checks if the input is out of range
-* void convertToXY()	 // converts to x or y
-* Boolean gameOver 	   	 // checks if a player has won or if the game is a draw
+##code example
+```javascript
+if(a < b){
+  return a;
+}else{
+	return b;
+}
+```
 
-## INTERFACE
 
-* displayBoard() 		// displays the board to the user
-* playerInput() 		// updates the board after each turn
-* displayGameOver()		// informes the user when he has won or made a draw

@@ -1,5 +1,5 @@
-TITLE
-=====
+Administration manual
+=====================
 	
 
 Secondary headline
