@@ -102,4 +102,16 @@ public class BusinessTest{
 		  assertEquals(false, Business.isGameWon(board));
 	  }
   }
+  
+  @Test
+  public void testBoardUpdate(){
+	  //char[][] board = Business.initializeBoard();
+	  Business b = new Business();
+	  
+	  b.updateBoard('X', 9);
+	  
+	  assertEquals('X', b.board[2][2]);
+	  
+	  
+  }
 }

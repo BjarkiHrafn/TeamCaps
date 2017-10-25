@@ -2,6 +2,14 @@ package is.ru.hugb.ttt;
 
 public class Business{
 	
+	
+	public static char[][] board;
+	
+	public Business(){
+			
+		board = new char[3][3];
+		board = initializeBoard();
+	}
 
 	public static char[][] initializeBoard(){
 		char board[][] = new char[3][3];
@@ -78,5 +86,14 @@ public class Business{
 		}
 		
 		return false;
+	}
+	
+	public static void updateBoard(char XorO, int input){
+			
+		int[] coordinates = convertToXY(input);
+		//XorO = playerXorO(input);
+		
+		
+		board[coordinates[1]][coordinates[0]] = XorO;
 	}
 }

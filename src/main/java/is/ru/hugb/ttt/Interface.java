@@ -14,7 +14,7 @@ public class Interface{
 	
 	public Interface(){
 		business = new Business();
-		board = business.initializeBoard();
+		board = business.board;
 		playerCounter = 0;
 	}
 	
@@ -31,18 +31,25 @@ public class Interface{
 		
 		Scanner read = new Scanner(System.in);
 		char player = business.playerXorO(playerCounter);
-		playerCounter ++;
-
+		
+		
 		System.out.println("Player " + player + ": ");
 		
 		System.out.print("Input: ");
 		int userInput = read.nextInt();
 		read.close();
 		System.out.println();
+		business.updateBoard(player, userInput);
+		playerCounter ++;
+		printBoard();
+		
 		
 	}
 	
+	
+	
 	public static  void main(String[] args){  
+		
 		Interface test = new Interface();
 		test.printBoard();
 		test.userInteraction();
