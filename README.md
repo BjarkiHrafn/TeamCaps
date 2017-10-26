@@ -27,6 +27,8 @@ Give examples
 * [Gradle](https://gradle.org/) - The build tool used
 * [Github](https://github.com/) - The source control used
 * [Travis](https://travis-ci.org/) - The continuous integration server used
+* [Heroku](https://dashboard.heroku.com/apps) - The cloud platform used
+* [Git](https://git-scm.com/) - The version control system used
 
 ### Authors
 
@@ -38,6 +40,10 @@ Give examples
 
 ## Acknowledgments
 
-* Hat tip to anyone who's code was used
-* Inspiration
-* etc
+> Special thanks to the Teaching assistants for the help during class for this project.
+* Skúli Arnlaugsson
+* Áslaug Eiríksdóttir
+* Karl Andrés Gíslason
+* Einar Magnús Einarsson
+
+> Thanks to Reykjavik University for giving us access to its facilities.
