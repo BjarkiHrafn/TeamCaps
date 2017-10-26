@@ -1,6 +1,7 @@
 Design report
 =============
-	
+
+Document describing the initial design.
 
 FUNCTIONS IN INTERFACE AND BUSINESS CLASSES
 -------------------------------------------
