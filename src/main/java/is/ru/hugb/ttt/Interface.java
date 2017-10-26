@@ -39,17 +39,24 @@ public class Interface{
 			System.out.println("Player " + player + ": ");
 			
 			int userInput = 99;
+			String userInputString = "";
 			while(!business.checkIfInRange(userInput)) {
 				System.out.print("Input: ");
-				userInput = read.nextInt();
+				userInputString = read.nextLine();
+				
+				try {
+					userInput = Integer.valueOf(userInputString);
+				}
+				catch(Exception e) {
+					System.out.println("Input is not a number");
+				}
+				
 				int[] XY = business.convertToXY(userInput);
 				if(!business.checkIfInRange(userInput)) {
 					System.out.println("Invalid input, try again");
 				}
-				if(business.checkIfOccupied(board, XY[0], XY[1])) {
+				else if(business.checkIfOccupied(board, userInput)) {
 					System.out.println("position is occupied, try again");
-					// userInput is made out of range to make the while loop run again
-					// possible refactoring required
 					userInput = 99;
 				}
 			}
@@ -59,12 +66,15 @@ public class Interface{
 			playerCounter ++;
 			
 		}
-		if(playerCounter >= 9) {
+		printBoard();
+		if(business.isGameWon(board)) {
+			System.out.println("Player: " + player + " wins!");
+		}
+		else if(playerCounter >= 9) {
 			System.out.println("Draw!");
 		}
 		else {
-			printBoard();
-			System.out.println("Player: " + player + " wins!");
+			System.out.println("something went wront");
 		}
 	}
 	
