@@ -105,7 +105,6 @@ public class BusinessTest{
   
   @Test
   public void testBoardUpdate(){
-	  //char[][] board = Business.initializeBoard();
 	  Business b = new Business();
 	  
 	  b.updateBoard('X', 9);
