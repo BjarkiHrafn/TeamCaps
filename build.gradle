@@ -4,8 +4,6 @@ apply plugin: 'application'
 
 mainClassName = 'is.ru.hugb.ttt.Interface'
 
-
-
 repositories {
 	mavenCentral()
 }
@@ -18,6 +16,7 @@ run{
     standardInput = System.in
 }
 
+
 buildscript {
     repositories {
         jcenter()
@@ -26,11 +25,16 @@ buildscript {
     dependencies {
         classpath 'org.kordamp:markdown-gradle-plugin:1.0.0'
     }
+    
 }
 
 apply plugin: 'org.kordamp.markdown.convert'
 
-tasks.markdownToHtml
+markdownToHtml {
+	sourceDir = file('/docs')
+	outputDir = file('/docs')
+}
 
+build.finalizedBy(markdownToHtml)
 
 

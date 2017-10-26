@@ -42,4 +42,4 @@ TicTacToe
 * Karl Andrés Gíslason
 * Einar Magnús Einarsson
 
-> Thanks to Reykjavik University for giving us access to its facilities.
+> Thanks to Reykjavik University for giving us access to its facilities. Bla....FIXME
