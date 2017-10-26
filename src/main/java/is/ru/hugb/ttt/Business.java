@@ -48,11 +48,7 @@ public class Business{
 		return arr;
 	}
 
-	public static boolean checkIfOccupied(char[][] board, int input){
-		
-		int[] xy = convertToXY(input);
-		int x = xy[0];
-		int y = xy[1];
+	public static boolean checkIfOccupied(char[][] board, int x, int y){
 		if(board[x][y] == 'X' || board[x][y] == 'O'){
 			return true;
 		}
