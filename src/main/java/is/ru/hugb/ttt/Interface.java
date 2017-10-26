@@ -42,13 +42,20 @@ public class Interface{
 			while(!business.checkIfInRange(userInput)) {
 				System.out.print("Input: ");
 				userInput = read.nextInt();
+				int[] XY = business.convertToXY(userInput);
 				if(!business.checkIfInRange(userInput)) {
 					System.out.println("Invalid input, try again");
+				}
+				if(business.checkIfOccupied(board, XY[0], XY[1])) {
+					System.out.println("position is occupied, try again");
+					// userInput is made out of range to make the while loop run again
+					// possible refactoring required
+					userInput = 99;
 				}
 			}
 			//read.close();
 			
-			System.out.println("poo");
+			System.out.println();
 			business.updateBoard(player, userInput);
 			playerCounter ++;
 			
