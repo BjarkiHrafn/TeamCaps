@@ -1,16 +1,18 @@
 Administration manual
 =====================
 	
+### How to set up and run
 
-Secondary headline
-------------------
+> How to set it up and get it to run, also on a
+fresh machine.
 
-### Third headline
+### How to install and run ( for desktop program only )
 
-A link to something [GitHub](https://github.com/)
+> How to install and run the program on clients machine
+(in case of simple desktop program).
 
-> ## Title for lorem ipsum
->
-> Nulla at ante et velit efficitur gravida. Pellentesque at commodo nulla. Sed purus nisi, scelerisque ut accumsan eget, ultricies a lectus. Vestibulum molestie tortor eros, ut porta risus vestibulum ac. Etiam blandit elit vel urna maximus congue. Etiam placerat dolor augue, vel aliquam dolor tincidunt eget.
->
->
+### How to deploy, run and maintain
+
+> How to deploy, run and maintain
+in case of client/server or web application
+ 
