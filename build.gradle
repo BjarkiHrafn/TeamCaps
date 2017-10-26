@@ -14,3 +14,22 @@ dependencies {
 	// Test dependencies
 	testCompile group: 'junit', name: 'junit', version: '4.8'
 }
+
+buildscript {
+    repositories {
+        jcenter()
+        maven { url 'http://dl.bintray.com/content/aalmiray/kordamp' }
+    }
+    dependencies {
+        classpath 'org.kordamp:markdown-gradle-plugin:1.0.0'
+    }
+}
+
+apply plugin: 'org.kordamp.markdown.convert'
+
+markdownToHtml {
+	sourceDir = file('/docs')
+	outputDir = file('/docs')
+}
+
+build.finalizedBy(markdownToHtml)
