@@ -1,7 +1,7 @@
 TicTacToe
 =========
 >
-> ![Image of TeamCapslock](https://github.com/HUGB2017TeamCapslock/TeamCaps/images/teamcaps.png)
+> ![Image of TeamCapslock](https://github.com/HUGB2017TeamCapslock/TeamCaps/images/teamcaps.jpg)
 > This is a group project done by the team 'teamcapslock' in the class Hugbúnaðarfræði at Reykjavík University. The project
 > is seting up a continous integration of the simple game TicTacToe.
 
