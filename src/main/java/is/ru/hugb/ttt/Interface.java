@@ -53,7 +53,6 @@ public class Interface{
 					userInput = 99;
 				}
 			}
-			//read.close();
 			
 			System.out.println();
 			business.updateBoard(player, userInput);
