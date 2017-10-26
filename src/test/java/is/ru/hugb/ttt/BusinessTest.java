@@ -36,9 +36,9 @@ public class BusinessTest{
     board[0][0] = 'X';
     board[2][2] = 'O';
 
-    assertEquals(true, Business.checkIfOccupied(board, 1));
-    assertEquals(true, Business.checkIfOccupied(board, 9));
-    assertEquals(false, Business.checkIfOccupied(board, 3));
+    assertEquals(true, Business.checkIfOccupied(board, 0, 0));
+    assertEquals(true, Business.checkIfOccupied(board, 2, 2));
+    assertEquals(false, Business.checkIfOccupied(board, 1, 2));
   }
 
   @Test
