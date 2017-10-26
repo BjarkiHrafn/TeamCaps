@@ -7,15 +7,11 @@ TicTacToe
 
 ### Getting Started
 >
-> To get this game running on your machine all you need to to is follow this link to the game [TicTacToe] (https://todo.com)
+> To get this game running on your machine all you need to do is follow this link to the game [TicTacToe] (https://todo.com)
 
 ### Prerequisites
 >
 > What things you need to install the software and how to install them
-
-```
-Give examples
-```
 
 ### Deployment
 > 
@@ -32,13 +28,13 @@ Give examples
 
 ### Authors
 
-* **Bjarki Hrafn Axelsson** - *Initial work* - [TicTacToe](https://github.com/HUGB2017TeamCapslock/TeamCaps/)
-* **Davíð Gunnarsson** - *Initial work* - [TicTacToe](https://github.com/HUGB2017TeamCapslock/TeamCaps/)
-* **Leifur Pálsson** - *Initial work* - [TicTacToe](https://github.com/HUGB2017TeamCapslock/TeamCaps/)
-* **Smári Freyr Guðmundsson** - *Initial work* - [TicTacToe](https://github.com/HUGB2017TeamCapslock/TeamCaps/)
-* **Snorri Arinbjarnar** - *Initial work* - [TicTacToe](https://github.com/HUGB2017TeamCapslock/TeamCaps/)
+* **Bjarki Hrafn Axelsson** - *Development* - [BjarkiHrafn](https://github.com/BjarkiHrafn)
+* **Davíð Gunnarsson** - *Development* - [dbgs2](https://github.com/dbgs2)
+* **Leifur Pálsson** - *Development* - [Leifur16](https://github.com/Leifur16)
+* **Smári Freyr Guðmundsson** - *Development* - [clover89](https://github.com/clover89)
+* **Snorri Arinbjarnar** - *Development* - [SnorriArinbjarnar](https://github.com/SnorriArinbjarnar)
 
-## Acknowledgments
+### Acknowledgments
 
 > Special thanks to the Teaching assistants for the help during class for this project.
 * Skúli Arnlaugsson
