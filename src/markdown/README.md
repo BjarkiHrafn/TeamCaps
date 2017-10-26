@@ -25,7 +25,6 @@ TicTacToe
 * [Travis](https://travis-ci.org/) - The continuous integration server used
 * [Heroku](https://dashboard.heroku.com/apps) - The cloud platform used
 * [Git](https://git-scm.com/) - The version control system used
-* [Markdown gradle plugin](https://github.com/aalmiray/markdown-gradle-plugin) - The markdown to html gradle plugin used
 
 ### Authors
 
@@ -43,4 +42,4 @@ TicTacToe
 * Karl Andrés Gíslason
 * Einar Magnús Einarsson
 
-> Thanks to Reykjavik University for giving us access to its facilities.
+> Thanks to Reykjavik University for giving us access to its facilities. Bla....FIXME
