@@ -1,7 +1,10 @@
 apply plugin: 'java'
 apply plugin: 'application'
 
+
 mainClassName = 'is.ru.hugb.ttt.Interface'
+
+
 
 repositories {
 	mavenCentral()
@@ -14,3 +17,20 @@ dependencies {
 run{
     standardInput = System.in
 }
+
+buildscript {
+    repositories {
+        jcenter()
+        maven { url 'http://dl.bintray.com/content/aalmiray/kordamp' }
+    }
+    dependencies {
+        classpath 'org.kordamp:markdown-gradle-plugin:1.0.0'
+    }
+}
+
+apply plugin: 'org.kordamp.markdown.convert'
+
+tasks.markdownToHtml
+
+
+
