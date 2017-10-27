@@ -11,6 +11,6 @@ public class TestWeb extends SeleniumTestWrapper {
 
     driver.get(baseUrl);
 
-    assertEquals("Tic-Tac-Toe", driver.getTitle());
+    assertEquals("team caps lock", driver.getTitle());
   }
 }
