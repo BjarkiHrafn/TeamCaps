@@ -68,6 +68,28 @@ buildscript {
   }
 }
 
+//Spotless buildscript for format check on code
+buildscript {
+  repositories {
+    maven {
+      url "https://plugins.gradle.org/m2/"
+    }
+  }
+  dependencies {
+    classpath "com.diffplug.spotless:spotless-plugin-gradle:3.6.0"
+  }
+}
+apply plugin: "com.diffplug.gradle.spotless"
+//Spotless google java format set
+//spotless {
+//  java {
+//    googleJavaFormat()
+//    paddedCell()
+//  }
+//}
+
+
+
 apply plugin: 'nebula.lint'
 gradleLint.rules += 'all-dependency'
 gradleLint.rules += 'all-nebula-renames'
