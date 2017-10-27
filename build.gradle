@@ -5,14 +5,27 @@ mainClassName = 'is.ru.hugb.ttt.WebUI'
 
 repositories {
 	mavenCentral()
+	jcenter()
+}
+
+sourceSets {
+  selenium
 }
 
 dependencies {
 	// Dependencies
 	compile 'com.sparkjava:spark-core:2.6.0'
 	
+	
+	compile 'com.google.guava:guava:22.0'
+    compile "com.sparkjava:spark-core:2.6.0"
+
+    testCompile 'org.testng:testng:6.10'
+	
 	// Test dependencies
 	testCompile group: 'junit', name: 'junit', version: '4.8'
+	seleniumCompile 'junit:junit:4.12'
+    seleniumCompile 'org.seleniumhq.selenium:selenium-java:3.6.0'
 }
 
 task stage {dependsOn installDist}
@@ -26,6 +39,16 @@ buildscript {
         classpath 'org.kordamp:markdown-gradle-plugin:1.0.0'
     }
 }
+
+task selenium(type: Test, dependsOn: installDist) {
+  testClassesDir = sourceSets.selenium.output.classesDir
+  classpath = sourceSets.selenium.runtimeClasspath
+  
+  doFirst{
+	'build/install/TeamCaps/bin/TeamCaps.bat'.execute()
+  }
+  
+  }
 
 apply plugin: 'org.kordamp.markdown.convert'
 
