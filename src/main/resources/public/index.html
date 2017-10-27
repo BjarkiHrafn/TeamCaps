@@ -5,15 +5,15 @@
 		<title>team caps lock</title>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	</head>
-	
+
 	<form method="post" action="/start" class="form-inline" role="form">
 	</form>
-	
+
 	<body>
 		<h1>Tic-Tac-Toe</h1>
-		
+
 		<script type="text/javascript">
-		
+
 		$(document).ready(function() {
           $.ajax({
             type: 'GET',
@@ -25,7 +25,7 @@
           }).fail(function() {
             $('#bla').html('Failed to load table! \n Contact team caps lock for support.').attr('class', 'alert alert-danger');
           });
-		  
+
 			var form = $('#pInput');
 			form.submit(function( event ) {
 			  var number = $("#xIn").val();
@@ -37,7 +37,7 @@
 					for(var i = 0; i < 10; i++){
 						$('#' + (i + 1)).html(result.charAt(i)).attr('class', 'alert alert-success');
 					}
-					
+
 					$.ajax({
 					type: 'GET',
 					url: '/player'
@@ -46,17 +46,17 @@
 				}).fail(function() {
 					$('#error').html('Failed to load player! \n Contact team caps lock for support.').attr('class', 'alert alert-danger');
 				});
-					
-					
-					
-					
+
+
+
+
 			  }).fail(function() {
 				$('#error').html('Error, illegal position...').attr('class', 'alert alert-danger');
 			  });
 			  event.preventDefault();
 			});
-		  
-		  
+
+
 		  $.ajax({
 					type: 'GET',
 					url: '/player'
@@ -65,15 +65,16 @@
 				}).fail(function() {
 					$('#error').html('Failed to load player! \n Contact team caps lock for support.').attr('class', 'alert alert-danger');
 				});
-			
+
+
 			});
-			
-		
+
+
 		</script>
-		
+
 		<div id="error"></div>
 		<h2 id="pRound"></h2>
-		
+
 		<table id="gameTable">
 			<tbody>
 				<tr>
@@ -93,9 +94,9 @@
 				</tr>
 			</tbody>
 		</table>
-		
+
 		<form id="pInput" method="post" action="/game" role="form">
-			Input position: <input type="number" name="xInput" id="xIn" /><br/>
+			Input position: <input type="number" name="xInput" id="xIn" min=1 max=9 /><br/>
 			<input id="play" type="submit" value="Submit" />
 		</form>
 </html>

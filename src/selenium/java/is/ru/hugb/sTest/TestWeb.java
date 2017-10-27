@@ -40,8 +40,20 @@ public class TestWeb extends SeleniumTestWrapper {
     input.submit();
     Thread.sleep(5000);
     assertEquals("Error, illegal position...", message.getText());
+  }
 
+  public void testSwitchPlayer() throws Exception {
+    driver.get(baseUrl);
+    Thread.sleep(5000);
 
+    WebElement input = driver.findElement(By.id("xIn"));
+    WebElement player = driver.findElement(By.id("pRound"));
+    assertEquals("O", player.getText());
+    Thread.sleep(5000);
+    input.sendKeys("2");
+    input.submit();
+    Thread.sleep(5000);
+    assertEquals("X", player.getText());
   }
 
 }
