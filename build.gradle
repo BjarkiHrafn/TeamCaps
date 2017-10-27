@@ -16,17 +16,18 @@ dependencies {
 	// Dependencies
 	compile 'com.sparkjava:spark-core:2.6.0'
 	compile 'com.google.guava:guava:22.0'
-
-    testCompile 'org.testng:testng:6.10'
+  testCompile 'org.testng:testng:6.10'
 	
 	// Test dependencies
 	testCompile group: 'junit', name: 'junit', version: '4.8'
 	seleniumCompile 'junit:junit:4.12'
-    seleniumCompile 'org.seleniumhq.selenium:selenium-java:3.6.0'
 }
 
 task stage {dependsOn installDist}
 
+// BUILDS SCRIPTS
+
+// Markdown conversion script
 buildscript {
     repositories {
         jcenter()
@@ -36,16 +37,44 @@ buildscript {
         classpath 'org.kordamp:markdown-gradle-plugin:1.0.0'
     }
 }
-
 apply plugin: 'org.kordamp.markdown.convert'
 
+// Gradle lint
+buildscript {
+	repositories { 
+		jcenter() 
+	}
+ 	dependencies {
+    classpath 'com.netflix.nebula:gradle-lint-plugin:latest.release'
+  }
+}
+apply plugin: 'nebula.lint'
+
+//Spotless buildscript for format check on code
+buildscript {
+  repositories {
+    maven {
+      url "https://plugins.gradle.org/m2/"
+    }
+  }
+  dependencies {
+    classpath "com.diffplug.spotless:spotless-plugin-gradle:3.6.0"
+  }
+}
+apply plugin: "com.diffplug.gradle.spotless"
+
+
+
+// SCRIPTS APPLIED
+
+// Markdown script applied
 markdownToHtml {
 	sourceDir = file('/docs')
 	outputDir = file('/docs')
 }
-
 build.finalizedBy(markdownToHtml)
 
+// Selenium script applied
 task selenium(type: Test, dependsOn: installDist) {
   testClassesDir = sourceSets.selenium.output.classesDir
   classpath = sourceSets.selenium.runtimeClasspath
@@ -53,4 +82,16 @@ task selenium(type: Test, dependsOn: installDist) {
   doFirst{
 	'build/install/TeamCaps/bin/TeamCaps.bat'.execute()
   }
-}
+  
+//Spotless google java format set
+//spotless {
+//  java {
+//    googleJavaFormat()
+//    paddedCell()
+//  }
+//}
+
+// Gradle lint applied
+gradleLint.rules += 'all-dependency'
+gradleLint.rules += 'all-nebula-renames'
+gradleLint.rules += 'duplicate-dependency-class'
