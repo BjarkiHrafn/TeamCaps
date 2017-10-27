@@ -1,3 +1,4 @@
+
 apply plugin: 'java'
 apply plugin: 'application'
 
@@ -17,11 +18,11 @@ dependencies {
 	compile 'com.sparkjava:spark-core:2.6.0'
 	compile 'com.google.guava:guava:22.0'
 
-
+	
 	// Test dependencies
 	testCompile group: 'junit', name: 'junit', version: '4.8'
+  seleniumCompile 'org.seleniumhq.selenium:selenium-java:3.6.0'
 	seleniumCompile 'junit:junit:4.12'
-	seleniumCompile 'org.seleniumhq.selenium:selenium-java:3.6.0'
 }
 
 task stage {dependsOn installDist}
@@ -43,26 +44,8 @@ markdownToHtml {
 }
 
 
-task selenium(type: Test, dependsOn: installDist) {
-  testClassesDir = sourceSets.selenium.output.classesDir
-  classpath = sourceSets.selenium.runtimeClasspath
-
-  doFirst{
-	'build/install/TeamCaps/bin/TeamCaps.bat'.execute()
-  }
-
-  }
-
-//buildscript {
-//	repositories {
-//		jcenter()
-//	}
-// 	dependencies {
-//    classpath 'com.netflix.nebula:gradle-lint-plugin:latest.release'
-//  }
-//}
-
-//Spotless buildscript for format check on code
+//SPOTLESS
+//buildscript for format check on code
 buildscript {
   repositories {
     maven {
@@ -83,12 +66,17 @@ spotless {
   }
 }
 
+//SELENIUM
+//End to end test
+task selenium(type: Test, dependsOn: installDist) {
+  testClassesDir = sourceSets.selenium.output.classesDir
+  classpath = sourceSets.selenium.runtimeClasspath
+  
+  doFirst{
+	'build/install/TeamCaps/bin/TeamCaps.bat'.execute()
+  }
+  
+  }
+
 build.finalizedBy(markdownToHtml)
 
-//apply plugin: 'nebula.lint'
-
-//gradleLint.rules += 'all-dependency'
-//gradleLint.rules += 'all-nebula-renames'
-//gradleLint.rules += 'duplicate-dependency-class'
-
-//build.finalizedBy(markdownToHtml)
