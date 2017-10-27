@@ -1,6 +1,7 @@
 package is.ru.hugb.ttt;
 
-public class Business {
+public class Business 
+{
 
   public static char[][] board;
 
