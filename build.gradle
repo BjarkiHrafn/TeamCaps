@@ -40,7 +40,7 @@ markdownToHtml {
 	sourceDir = file('/docs')
 	outputDir = file('/docs')
 }
-build.finalizedBy(markdownToHtml)
+//build.finalizedBy(markdownToHtml)
 
 task selenium(type: Test, dependsOn: installDist) {
   testClassesDir = sourceSets.selenium.output.classesDir
@@ -78,7 +78,7 @@ apply plugin: "com.diffplug.gradle.spotless"
 spotless {
   java {
     googleJavaFormat()
-    paddedCell()
+    //paddedCell()
   }
 }
 
@@ -90,4 +90,4 @@ spotless {
 //gradleLint.rules += 'all-nebula-renames'
 //gradleLint.rules += 'duplicate-dependency-class'
 
-//build.finalizedBy(markdownToHtml)
+build.finalizedBy(markdownToHtml)
