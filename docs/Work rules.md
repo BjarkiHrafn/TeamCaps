@@ -22,7 +22,7 @@ Concerning coding practices and rules
 > * Allways use tabs over spaces when indenting code.
 > * Use curlybraces right after all loops, function, classes etc.
 
-> ##code example
+> #### code example
 > ```javascript
 > if(a < b){
 > 	return a;
