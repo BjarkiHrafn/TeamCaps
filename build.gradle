@@ -15,9 +15,12 @@ sourceSets {
 dependencies {
 	// Dependencies
 	compile 'com.sparkjava:spark-core:2.6.0'
+
 	
 	
-    compile "com.sparkjava:spark-core:2.6.0"
+  compile "com.sparkjava:spark-core:2.6.0"
+
+	compile 'com.google.guava:guava:22.0'
 
 	
 	// Test dependencies
@@ -37,6 +40,15 @@ buildscript {
     }
 }
 
+apply plugin: 'org.kordamp.markdown.convert'
+
+markdownToHtml {
+	sourceDir = file('/docs')
+	outputDir = file('/docs')
+}
+
+build.finalizedBy(markdownToHtml)
+
 task selenium(type: Test, dependsOn: installDist) {
   testClassesDir = sourceSets.selenium.output.classesDir
   classpath = sourceSets.selenium.runtimeClasspath
@@ -46,13 +58,6 @@ task selenium(type: Test, dependsOn: installDist) {
   }
   
   }
-
-apply plugin: 'org.kordamp.markdown.convert'
-
-markdownToHtml {
-	sourceDir = file('/docs')
-	outputDir = file('/docs')
-}
 
 buildscript {
 	repositories { 
