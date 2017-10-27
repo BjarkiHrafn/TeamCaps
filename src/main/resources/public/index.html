@@ -34,30 +34,45 @@
 				url: form.attr('action'),
 				data: 'xIn=' + number
 			  }).done(function(result) {
-				$('#debug').html(result).attr('class', 'alert alert-success');
+					for(var i = 0; i < 10; i++){
+						$('#' + (i + 1)).html(result.charAt(i)).attr('class', 'alert alert-success');
+					}
+					
+					$.ajax({
+					type: 'GET',
+					url: '/player'
+				}).done(function(result) {
+					$('#pRound').html(result);
+				}).fail(function() {
+					$('#error').html('Failed to load player! \n Contact team caps lock for support.').attr('class', 'alert alert-danger');
+				});
+					
+					
+					
+					
 			  }).fail(function() {
-				$('#debug').html('Error, Illegal string...').attr('class', 'alert alert-danger');
+				$('#error').html('Error, illegal position...').attr('class', 'alert alert-danger');
 			  });
 			  event.preventDefault();
 			});
-		});
 		  
-		  /*
+		  
 		  $.ajax({
 					type: 'GET',
 					url: '/player'
 				}).done(function(result) {
-					$('#xIn').attr("disabled", false);
+					$('#pRound').html(result);
 				}).fail(function() {
 					$('#error').html('Failed to load player! \n Contact team caps lock for support.').attr('class', 'alert alert-danger');
 				});
 			
 			});
-			*/
+			
 		
 		</script>
 		
-		<div id="debug"></div>
+		<div id="error"></div>
+		<h2 id="pRound"></h2>
 		
 		<table id="gameTable">
 			<tbody>
@@ -80,8 +95,7 @@
 		</table>
 		
 		<form id="pInput" method="post" action="/game" role="form">
-			Player X: <input type="number" name="xInput" id="xIn" /><br/>
-			Player O: <input type="number" name="oInput" id="oIn" disabled/><br/>
+			Input position: <input type="number" name="xInput" id="xIn" /><br/>
 			<input id="play" type="submit" value="Submit" />
 		</form>
 </html>
