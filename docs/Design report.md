@@ -3,10 +3,11 @@ Design report
 
 Document describing the initial design.
 
-FUNCTIONS IN INTERFACE AND BUSINESS CLASSES
--------------------------------------------
+## Class Diagram
 
-## BUISNESS
+## FUNCTIONS IN INTERFACE AND BUSINESS CLASSES
+
+### BUSINESS
 
 * void initializeBoard() // creates the board
 * void updateBoard()     // updates the board after a player makes a move
@@ -15,7 +16,7 @@ FUNCTIONS IN INTERFACE AND BUSINESS CLASSES
 * void convertToXY()	 // converts to x or y
 * Boolean gameOver 	   	 // checks if a player has won or if the game is a draw
 
-## INTERFACE
+### INTERFACE
 
 * displayBoard() 		// displays the board to the user
 * playerInput() 		// updates the board after each turn
