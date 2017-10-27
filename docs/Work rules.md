@@ -6,29 +6,44 @@ Concerning git operations
 
 > ### commit 
 > 
-> * Write only in english.
-> * all comments should be descreptive for what is to be pushed to git.
+> * All comments are written in english.
+> * All comments should be descriptive and short.
 		 
 > ### add
 > 
-> * Under no circumstances should you use the command "git add .".
-> * Instead use the command "git add -p" and choose yes or no.
+> * Under no circumstances should the command "git add ." be used.
+> * Instead the command "git add -p" should be used.
 		 
 Concerning coding practices and rules
 -------------------------------------
 
 > ### code
 > 
-> * Allways use tabs over spaces when indenting code.
-> * Use curlybraces right after all loops, function, classes etc.
+> * This projects is automaticly checked for code format and that follows [Google java code format](https://google.github.io/styleguide/javaguide.html).
 
-> #### code example
+> #### code example from google java format
 > ```javascript
-> if(a < b){
-> 	return a;
-> }else{
-> 	return b;
-> }
+> return () -> {
+>  while (condition()) {
+>    method();
+>  }
+>};
+>
+>return new MyClass() {
+>  @Override public void method() {
+>    if (condition()) {
+>      try {
+>        something();
+>      } catch (ProblemException e) {
+>        recover();
+>      }
+>    } else if (otherCondition()) {
+>      somethingElse();
+>    } else {
+>      lastThing();
+>    }
+>  }
+>};
 > ```
 
 
