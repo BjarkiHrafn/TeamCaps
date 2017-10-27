@@ -15,14 +15,17 @@ sourceSets {
 dependencies {
 	// Dependencies
 	compile 'com.sparkjava:spark-core:2.6.0'
+
+	
+	
+  compile "com.sparkjava:spark-core:2.6.0"
+
 	compile 'com.google.guava:guava:22.0'
 
-    testCompile 'org.testng:testng:6.10'
 	
 	// Test dependencies
 	testCompile group: 'junit', name: 'junit', version: '4.8'
 	seleniumCompile 'junit:junit:4.12'
-    seleniumCompile 'org.seleniumhq.selenium:selenium-java:3.6.0'
 }
 
 task stage {dependsOn installDist}
@@ -55,3 +58,19 @@ task selenium(type: Test, dependsOn: installDist) {
   }
   
   }
+
+buildscript {
+	repositories { 
+		jcenter() 
+	}
+ 	dependencies {
+    classpath 'com.netflix.nebula:gradle-lint-plugin:latest.release'
+  }
+}
+
+apply plugin: 'nebula.lint'
+gradleLint.rules += 'all-dependency'
+gradleLint.rules += 'all-nebula-renames'
+gradleLint.rules += 'duplicate-dependency-class'
+
+build.finalizedBy(markdownToHtml)
