@@ -53,5 +53,4 @@ task selenium(type: Test, dependsOn: installDist) {
   doFirst{
 	'build/install/TeamCaps/bin/TeamCaps.bat'.execute()
   }
-  
-  }
+}

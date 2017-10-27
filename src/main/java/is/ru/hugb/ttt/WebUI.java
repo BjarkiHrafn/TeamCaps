@@ -20,9 +20,25 @@ public class WebUI{
 		staticFileLocation("/public");
 		WebUI ui = new WebUI();
 		
-		get("/start", (request, response) -> {
+		get("/getTable", (request, response) -> {
 			return ui.boardToString(board);
 		});
+		
+			get("/player", (request, response) -> {
+			return business.playerXorO(playerCounter);
+		});
+		
+		post("/game", (req, res) -> {
+			int cell = Integer.parseInt(req.queryParams("xIn"));
+			return cell + 1337;
+		});
+		
+		get(
+        "/game/:input",
+        (req, res) -> {
+          String cell = req.params(":input");
+          return cell;
+        });
 	}
 	
 	private static char[][] printBoard(){
