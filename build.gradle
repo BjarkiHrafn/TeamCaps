@@ -15,11 +15,7 @@ sourceSets {
 dependencies {
 	// Dependencies
 	compile 'com.sparkjava:spark-core:2.6.0'
-	
-	
 	compile 'com.google.guava:guava:22.0'
-    compile "com.sparkjava:spark-core:2.6.0"
-
     testCompile 'org.testng:testng:6.10'
 	
 	// Test dependencies

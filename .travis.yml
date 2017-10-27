@@ -1,4 +1,10 @@
 language: java
- 
 before_install:
- - chmod +x gradlew
+- chmod +x gradlew
+deploy:
+  provider: heroku
+  api_key:
+    secure: O8CtvxS6QNm5ha1YdG4ExbQLxYHwp4tSv/S8eE1CjebfuDdDprGYxumZKlxl+zapAHzR3z8ge4fDkMw9aqD8FtCxAH3lNCUBhFgDMy9GtpItUa6tgy4Q7QiA1HwXFPdG5nOHokedSMsnR8E6TD4+ed1XBC5BBuZxxt/8LyACcEdsY4mEIyFqc7PSqKmDuT7falCB7yWlmdf1C9P6yenyjtRpzPEYMXPZULnCgH+Z2DLadjlcx2ElyLY2ag6y2SxuFsO7R2oZfoeOCsEicMZzDO63a0BUhEBd/AF5iKTmnai18INw3lbB8L8qsm4S2uWj8fC8yuW1rJoSla+HjgEQ7oNqukFdXJmXOCNk52fDaTtnYmUWuhYgFI7tor9/pxGhc+hgilakhVrhmsHf1f+n0R9Nh11yOhxd1asHYnp32QAwhKwiL0sTnaGJy5I+bvFU+mKgCIaZWgckMm1f6uEnoP8e5aEkmiqk7Q9qbgxf0gFDda+fTuv3i+HlXhTvl/nb0/iBBQO7CcKPeweIXOC1PXfscpco+YoISASh/6Nez73kvF85fy1jE+s5IXtVeuxlCJ+eRZclnw8wXmAOvzyCdK+0K4Jy70gM/iwMbcwVmZ8TPa52sf+ecOPEymwkR7HBNwG1gM6TnoExilCYQwgZRUNQAwtDi+Ym0BuxV1Y+xzg=
+  app: dry-bastion-22033
+  on:
+    repo: HUGB2017TeamCapslock/TeamCaps
