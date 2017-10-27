@@ -1,18 +1,9 @@
 package is.ru.sTest;
 
 import java.util.concurrent.TimeUnit;
-
-
-
-import org.openqa.selenium.chrome.ChromeDriver;
-
-
-
 import org.junit.AfterClass;
-
 import org.junit.BeforeClass;
-
-
+import org.openqa.selenium.chrome.ChromeDriver;
 
 public abstract class SeleniumTestWrapper {
 
@@ -22,38 +13,26 @@ public abstract class SeleniumTestWrapper {
 
   static String port;
 
-
-
   @BeforeClass
-
   public static void openBrowser() {
 
     driver = new ChromeDriver();
 
     driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
-
-
     port = System.getenv("PORT");
 
     if (port == null) {
 
-        port = "4567";
-
+      port = "4567";
     }
 
     baseUrl = "http://localhost:" + port;
-
   }
-
-
 
   @AfterClass
-
-  public static void closeBrowser(){
+  public static void closeBrowser() {
 
     driver.quit();
-
   }
-
 }
