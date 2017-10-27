@@ -79,7 +79,7 @@ buildscript {
     classpath "com.diffplug.spotless:spotless-plugin-gradle:3.6.0"
   }
 }
-apply plugin: "com.diffplug.gradle.spotless"
+//apply plugin: "com.diffplug.gradle.spotless"
 //Spotless google java format set
 spotless {
   java {
