@@ -28,4 +28,20 @@ public class TestWeb extends SeleniumTestWrapper {
     assertEquals("X", message.getText());
   }
 
+  @Test
+  public void testIllegalInput() throws Exception {
+    driver.get(baseUrl);
+
+    Thread.sleep(5000);
+    WebElement input = driver.findElement(By.id("xIn"));
+    WebElement message = driver.findElement(By.id("error"));
+    input.sendKeys("0");
+    Thread.sleep(5000);
+    input.submit();
+    Thread.sleep(5000);
+    assertEquals("Error, illegal position...", message.getText());
+
+
+  }
+
 }
