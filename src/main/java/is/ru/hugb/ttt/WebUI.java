@@ -35,7 +35,10 @@ public class WebUI {
         "/game",
         (req, res) -> {
           int cell = Integer.parseInt(req.queryParams("xIn"));
-          return cell + 1337;
+          char player = business.playerXorO(playerCounter);
+		  business.updateBoard(player, cell);
+		  playerCounter++;
+		  return ui.boardToString(board);
         });
 
     get(
