@@ -53,14 +53,15 @@
 				}).done(function(result) {
 					$('#pRound').html(result);
 				}).fail(function() {
-					$('#error').html('Failed to load player! \n Contact team caps lock for support.').attr('class', 'alert alert-danger');
+					$('#error').html('Failed to load player! \n Contact team caps lock for support.').attr('class', 'alert alert-danger'.delay(2000).fadeOut());
 				});
 					
 					
 					
 					
 			  }).fail(function() {
-				$('#error').html('Error, illegal position...').attr('class', 'alert alert-danger');
+				$('#error').html('Error, illegal position...').attr('class', 'alert alert-danger').delay(2000).fadeOut();
+				
 			  });
 			  event.preventDefault();
 			});
@@ -72,7 +73,7 @@
 				}).done(function(result) {
 					$('#pRound').html(result);
 				}).fail(function() {
-					$('#error').html('Failed to load player! \n Contact team caps lock for support.').attr('class', 'alert alert-danger');
+					$('#error').html('Failed to load player! \n Contact team caps lock for support.').attr('class', 'alert alert-danger').delay(2000).fadeOut();
 				});
 			
 			});
