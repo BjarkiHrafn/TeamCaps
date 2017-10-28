@@ -15,7 +15,7 @@ public abstract class SeleniumTestWrapper {
   static String baseUrl;
   static String port;
 
-  
+
 
   @BeforeClass
   public static void openBrowser() {
@@ -45,6 +45,7 @@ public abstract class SeleniumTestWrapper {
   public static WebDriver webDriver() {
       final ChromeOptions chromeOptions = new ChromeOptions();
       chromeOptions.setBinary(System.getProperty("google.chrome"));
+      chromeOptions.addArguments("--no-sandbox");
       chromeOptions.addArguments("--headless");
       chromeOptions.addArguments("--disable-gpu");
       final DesiredCapabilities dc = new DesiredCapabilities();
