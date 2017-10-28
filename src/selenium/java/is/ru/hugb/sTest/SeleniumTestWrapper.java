@@ -25,6 +25,7 @@ public abstract class SeleniumTestWrapper {
     driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
     port = System.getenv("PORT");
+    port = "4567";
 
     if (port == null) {
 

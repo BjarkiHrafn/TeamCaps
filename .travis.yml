@@ -20,4 +20,4 @@ deploy:
 script:
   - whereis google-chrome-stable
   - whereis chromedriver
-  - "java selenium/java/is/ru/hugb/sTest/*.java"
+  - ./gradlew selenium
