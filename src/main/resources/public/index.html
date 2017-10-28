@@ -5,18 +5,15 @@
 		<title>team caps lock</title>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	</head>
-	
-	<form method="post" action="/start" class="form-inline" role="form">
-	</form>
-	
+
 	<body>
 		<h1>Tic-Tac-Toe</h1>
-		
+
 		<script src = "myScripts.js"></script>
-		
+
 		<div id="error"></div>
 		<h2 id="pRound"></h2>
-		
+
 		<table id="gameTable">
 			<tbody>
 				<tr>
@@ -36,11 +33,14 @@
 				</tr>
 			</tbody>
 		</table>
-		
+
 		<form id="pInput" method="post" action="/game" role="form">
 			Input position: <input type="text" name="xInput" id="xIn" /><br/>
 			<input id="play" type="submit" value="Submit" />
 		</form>
 		<h2 id="gameStatus"></h2>
 		<button id="resetGame" action="/resetGame" method="post">reset game</button>
+
+		<form method="post" action="/start" class="form-inline" role="form"></form>
+	</body>
 </html>
