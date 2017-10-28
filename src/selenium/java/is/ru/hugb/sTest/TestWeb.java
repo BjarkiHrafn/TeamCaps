@@ -25,7 +25,7 @@ public class TestWeb extends SeleniumTestWrapper {
     WebElement message = driver.findElement(By.id("debug"));
     input.sendKeys("1");
     input.submit();
-    assertEquals("1338", message.getText());
+    assertEquals("X", message.getText());
 
   }
 
