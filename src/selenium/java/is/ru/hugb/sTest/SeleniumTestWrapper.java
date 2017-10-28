@@ -24,15 +24,19 @@ public abstract class SeleniumTestWrapper {
     //driver = webDriver();
     driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
+
+
     port = System.getenv("PORT");
-    port = "4567";
 
     if (port == null) {
 
       port = "4567";
     }
 
-    baseUrl = "http://localhost:" + port;
+    baseUrl = "https://dry-bastion-22033.herokuapp.com/";
+
+    //baseUrl = "http://localhost:" + port;
+
   }
 
 
@@ -43,7 +47,7 @@ public abstract class SeleniumTestWrapper {
     driver.quit();
   }
 
-  public static WebDriver webDriver() {
+  public static ChromeDriver webDriver() {
       final ChromeOptions chromeOptions = new ChromeOptions();
       chromeOptions.setBinary(System.getProperty("google.chrome"));
       chromeOptions.addArguments("--no-sandbox");
