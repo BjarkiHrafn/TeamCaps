@@ -77,4 +77,4 @@ task selenium(type: Test, dependsOn: installDist) {
 
   }
 
-build.finalizedBy(markdownToHtml)
+build.finalizedBy(selenium)
