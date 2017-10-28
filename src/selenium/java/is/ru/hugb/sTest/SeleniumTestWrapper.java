@@ -10,31 +10,18 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 
 public abstract class SeleniumTestWrapper {
 
-  static ChromeDriver driver;
-  /*private WebDriver driver;
-
+  //static ChromeDriver driver;
+  static WebDriver driver;
   static String baseUrl;
-
   static String port;
 
-  final ChromeOptions chromeOptions = new ChromeOptions();
-  chromeOptions.setBinary("/path/to/google-chrome-stable");
-  chromeOptions.addArguments("--headless");
-  chromeOptions.addArguments("--disable-gpu");
-
-  final DesiredCapabilities dc = new DesiredCapabilities();
-  dc.setJavascriptEnabled(true);
-  dc.setCapability(
-      ChromeOptions.CAPABILITY, chromeOptions
-  );*/
-
-
+  
 
   @BeforeClass
   public static void openBrowser() {
 
-    driver = new ChromeDriver(dc);
-    //WebDriver driver = new ChromeDriver(dc);
+    //driver = new ChromeDriver(dc);
+    driver = webDriver();
     driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
     port = System.getenv("PORT");
@@ -47,9 +34,25 @@ public abstract class SeleniumTestWrapper {
     baseUrl = "http://localhost:" + port;
   }
 
+
+
   @AfterClass
   public static void closeBrowser() {
 
     driver.quit();
   }
+
+  public static WebDriver webDriver() {
+      final ChromeOptions chromeOptions = new ChromeOptions();
+      chromeOptions.setBinary(System.getProperty("google.chrome"));
+      chromeOptions.addArguments("--headless");
+      chromeOptions.addArguments("--disable-gpu");
+      final DesiredCapabilities dc = new DesiredCapabilities();
+      dc.setJavascriptEnabled(true);
+      dc.setCapability(
+          ChromeOptions.CAPABILITY, chromeOptions
+      );
+      return new ChromeDriver(dc);
+  }
+
 }
