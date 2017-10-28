@@ -96,7 +96,7 @@ public class Business {
 
     board[coordinates[0]][coordinates[1]] = XorO;
   }
-  
+
   public static String boardToString(char[][] board) {
     StringBuilder builder = new StringBuilder();
 
@@ -107,9 +107,8 @@ public class Business {
     }
     return builder.toString();
   }
-  
-  
-  public static char[][] stringToBoard(String board) {
+
+  /*public static char[][] stringToBoard(String board) {
     char[][] cBoard = new char[3][3];
 	int boardCounter = 0;
 	
@@ -120,5 +119,5 @@ public class Business {
       }
     }
     return cBoard;
-  }
+  }*/
 }
