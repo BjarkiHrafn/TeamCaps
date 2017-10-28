@@ -47,6 +47,10 @@ public class WebUI {
 		  
 		  business.updateBoard(player, cell);
 		  playerCounter++;
+		  
+		  if(playerCounter == 9){
+			  return business.boardToString(board) + "Draw";
+		  }
 		  if(business.isGameWon(business.board)){
 			  return business.boardToString(board) + "Game over";
 		  }

@@ -108,6 +108,7 @@ public class Business {
     return builder.toString();
   }
   
+  
   public static char[][] stringToBoard(String board) {
     char[][] cBoard = new char[3][3];
 	int boardCounter = 0;
