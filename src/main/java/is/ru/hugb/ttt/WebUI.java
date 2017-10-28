@@ -22,7 +22,7 @@ public class WebUI {
     get(
         "/getTable",
         (request, response) -> {
-          return ui.boardToString(board);
+          return business.boardToString(board);
         });
 
     get(
@@ -38,7 +38,11 @@ public class WebUI {
           char player = business.playerXorO(playerCounter);
 		  business.updateBoard(player, cell);
 		  playerCounter++;
-		  return ui.boardToString(board);
+		  if(business.isGameWon(business.board)){
+			  return business.boardToString(board) + "Game over";
+		  }
+		  
+		  return business.boardToString(board);
         });
 
     get(
@@ -51,17 +55,6 @@ public class WebUI {
 
   private static char[][] printBoard() {
     return board;
-  }
-
-  private static String boardToString(char[][] board) {
-    StringBuilder builder = new StringBuilder();
-
-    for (int i = 0; i < 3; i++) {
-      for (int j = 0; j < 3; j++) {
-        builder.append(board[i][j]);
-      }
-    }
-    return builder.toString();
   }
 
   static int getHerokuPort() {

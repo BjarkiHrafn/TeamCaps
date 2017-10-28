@@ -20,7 +20,7 @@
             url: '/getTable',
           }).done(function(result) {
 			for(var i = 0; i < 10; i++){
-            $('#' + (i + 1)).html(result.charAt(i)).attr('class', 'alert alert-success');
+				$('#' + (i + 1)).html(result.charAt(i)).attr('class', 'alert alert-success');
 			}
           }).fail(function() {
             $('#bla').html('Failed to load table! \n Contact team caps lock for support.').attr('class', 'alert alert-danger');
@@ -29,15 +29,24 @@
 			var form = $('#pInput');
 			form.submit(function( event ) {
 			  var number = $("#xIn").val();
+			  $('#xIn').val('');
 			  $.ajax({
 				type: form.attr('method'),
 				url: form.attr('action'),
 				data: 'xIn=' + number
 			  }).done(function(result) {
+					if(result.length > 10){
 					for(var i = 0; i < 10; i++){
 						$('#' + (i + 1)).html(result.charAt(i)).attr('class', 'alert alert-success');
+						}
+						$('#gameStatus').html(result.substring(9));
+						$('#play').attr('disabled', true);
 					}
-					
+					else{
+						for(var i = 0; i < 10; i++){
+						$('#' + (i + 1)).html(result.charAt(i)).attr('class', 'alert alert-success');
+					}
+					}
 					$.ajax({
 					type: 'GET',
 					url: '/player'
@@ -68,6 +77,9 @@
 			
 			});
 			
+			<!-- function clearFields(){ -->
+				<!-- document.getElementById("pInput").reset(); -->
+			<!-- } -->
 		
 		</script>
 		
@@ -95,7 +107,8 @@
 		</table>
 		
 		<form id="pInput" method="post" action="/game" role="form">
-			Input position: <input type="number" name="xInput" id="xIn" /><br/>
+			Input position: <input type="text" name="xInput" id="xIn" /><br/>
 			<input id="play" type="submit" value="Submit" />
 		</form>
+		<h2 id="gameStatus"></h2>
 </html>

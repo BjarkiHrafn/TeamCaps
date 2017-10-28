@@ -13,9 +13,5 @@ Development manual
 >
 > Source control client and access to source
 > control Build environment
-* [Github Repository](https://github.com/HUGB2017TeamCapslock/TeamCaps/) - Contact **Smári Freyr Guðmundsson** at smarig16@ru.is to gain access 
-
-### Other necessary dependencies for development
->
-> Database access etc ::TODO::
+> * [Github Repository](https://github.com/HUGB2017TeamCapslock/TeamCaps/) - Contact **Smári Freyr Guðmundsson** at smarig16@ru.is to gain access 
 
