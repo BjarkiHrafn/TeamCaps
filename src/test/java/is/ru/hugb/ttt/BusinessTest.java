@@ -110,4 +110,12 @@ public class BusinessTest {
 
     assertEquals('X', b.board[2][2]);
   }
+
+  @Test
+  public void testBoardToString() {
+	char[][] board = Business.initializeBoard();
+	String boardString = Business.boardToString(board);
+	
+	assertEquals("123456789", boardString);
+  }
 }
