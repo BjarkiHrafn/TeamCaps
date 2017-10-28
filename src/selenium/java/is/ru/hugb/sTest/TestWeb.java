@@ -16,7 +16,7 @@ public class TestWeb extends SeleniumTestWrapper {
     assertEquals("team caps lock", driver.getTitle());
   }
 
-  @Test
+  /*@Test
   public void testInputX() throws Exception {
     driver.get(baseUrl);
 
@@ -27,6 +27,6 @@ public class TestWeb extends SeleniumTestWrapper {
     input.submit();
     assertEquals("X", message.getText());
 
-  }
+  }*/
 
 }

@@ -14,8 +14,6 @@ public abstract class SeleniumTestWrapper {
   static String baseUrl;
   static String port;
 
-
-
   @BeforeClass
   public static void openBrowser() {
 
