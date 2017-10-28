@@ -3,7 +3,7 @@ Work rules
 
 Concerning git operations
 -------------------------
-
+>
 > ### commit 
 > 
 > * All comments are written in english.
@@ -16,10 +16,10 @@ Concerning git operations
 		 
 Concerning coding practices and rules
 -------------------------------------
-
+>
 > ### code
 > 
-> * This projects is automaticly checked for code format and that follows [Google java code format](https://google.github.io/styleguide/javaguide.html).
+> * This projects code is scanned automatically for code format errors that follows [Google java code format](https://google.github.io/styleguide/javaguide.html).
 
 > #### code example from google java format
 > ```javascript
