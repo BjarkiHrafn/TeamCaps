@@ -10,8 +10,8 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 
 public abstract class SeleniumTestWrapper {
 
-  //static ChromeDriver driver;
-  static WebDriver driver;
+  static ChromeDriver driver;
+  //static WebDriver driver;
   static String baseUrl;
   static String port;
 
@@ -20,8 +20,8 @@ public abstract class SeleniumTestWrapper {
   @BeforeClass
   public static void openBrowser() {
 
-    //driver = new ChromeDriver(dc);
-    driver = webDriver();
+    driver = new ChromeDriver();
+    //driver = webDriver();
     driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
     port = System.getenv("PORT");
