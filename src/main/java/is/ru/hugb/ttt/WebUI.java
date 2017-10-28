@@ -36,14 +36,17 @@ public class WebUI {
         (req, res) -> {
           int cell = Integer.parseInt(req.queryParams("xIn"));
           char player = business.playerXorO(playerCounter);
+
 		  if(business.checkIfOccupied(board, cell)){
 			  throw new Exception();
 		  }
+		  
 		  business.updateBoard(player, cell);
 		  playerCounter++;
 		  if(business.isGameWon(business.board)){
 			  return business.boardToString(board) + "Game over";
 		  }
+		  
 		  
 		  return business.boardToString(board);
         });
