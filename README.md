@@ -38,11 +38,15 @@ TicTacToe
 
 ### Acknowledgments
 >
-> Thanks to Reykjavik University for giving us access to its facilities.
-> Special thanks to the Teaching assistants for the help during class for this project.
-> * **Skúli Arnlaugsson**
-> * **Áslaug Eiríksdóttir**
-> * **Karl Andrés Gíslason**
-> * **Einar Magnús Einarsson**
+> Thanks to Reykjavik University for giving the team access to its facilities.
+> Special thanks to the Teaching assistants team and the teacher for the help during class for this project.
+> * **Áslaug Eiríksdóttir** - *Teaching Assistant*
+> * **Einar Magnús Einarsson** - *Teaching Assistant*
+> * **Karl Andrés Gíslason** - *Teaching Assistant*
+> * **Sigurlaug Guðrún Jóhannsdóttir** - *Teaching Assistant*
+> * **Skúli Arnlaugsson** - *Teaching Assistant*
+> * **Hannes Pétursson** - *Teacher*
+
+
 
 
