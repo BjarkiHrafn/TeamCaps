@@ -18,7 +18,7 @@ dependencies {
 	compile 'com.sparkjava:spark-core:2.6.0'
 	compile 'com.google.guava:guava:22.0'
 
-	
+
 	// Test dependencies
 	testCompile group: 'junit', name: 'junit', version: '4.8'
 	seleniumCompile 'junit:junit:4.12'
@@ -55,27 +55,26 @@ buildscript {
     classpath "com.diffplug.spotless:spotless-plugin-gradle:3.6.0"
   }
 }
-apply plugin: "com.diffplug.gradle.spotless"
+//apply plugin: "com.diffplug.gradle.spotless"
 
 //Spotless google java format set
-spotless {
-  java {
-    googleJavaFormat()
-    paddedCell()
-  }
-}
+//potless {
+//  java {
+//    googleJavaFormat()
+//    paddedCell()
+//  }
+//}
 
 //SELENIUM
 //End to end test
 task selenium(type: Test, dependsOn: installDist) {
   testClassesDir = sourceSets.selenium.output.classesDir
   classpath = sourceSets.selenium.runtimeClasspath
-  
+
   doFirst{
 	'build/install/TeamCaps/bin/TeamCaps.bat'.execute()
   }
-  
+
   }
 
 build.finalizedBy(markdownToHtml)
-
