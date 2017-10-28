@@ -9,9 +9,13 @@ public class WebUI {
   private static int playerCounter;
 
   public WebUI() {
-    business = new Business();
-    board = business.board;
-    playerCounter = 0;
+      initializeGame();
+  }
+
+  public static void initializeGame() {
+	  business = new Business();
+	  board = business.board;
+      playerCounter = 0;
   }
 
   public static void main(String[] args) {
@@ -57,6 +61,13 @@ public class WebUI {
           String cell = req.params(":input");
           return cell;
         });
+		
+	post(
+		"/resetGame",
+		(request, response) -> {
+			ui.initializeGame();
+			return business.boardToString(board);
+		});
   }
 
   private static char[][] printBoard() {
