@@ -5,7 +5,7 @@ Document describing the initial design.
 
 ## Class Diagram
 
-![Caption for the picture.](/path/to/diagramjpg.jpg)
+![Caption for the picture.](/images/diagramjpg.jpg)
 
 ## FUNCTIONS IN INTERFACE AND BUSINESS CLASSES
 
