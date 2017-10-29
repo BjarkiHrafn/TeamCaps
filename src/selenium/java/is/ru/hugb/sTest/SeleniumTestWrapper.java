@@ -11,16 +11,15 @@ public abstract class SeleniumTestWrapper {
   static String port;
 
   @BeforeClass
-  public static void openBrowser(){
+  public static void openBrowser() {
     driver = new ChromeDriver();
     driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
-  baseUrl = "https://dry-bastion-22033.herokuapp.com/";
-}
-
-@AfterClass
-  public static void closeBrowser(){
-    driver.quit();
+    baseUrl = "https://dry-bastion-22033.herokuapp.com/";
   }
 
+  @AfterClass
+  public static void closeBrowser() {
+    driver.quit();
+  }
 }
