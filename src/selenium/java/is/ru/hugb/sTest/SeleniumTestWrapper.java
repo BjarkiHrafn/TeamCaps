@@ -15,11 +15,6 @@ public abstract class SeleniumTestWrapper {
     driver = new ChromeDriver();
     driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
-    port = System.getenv("PORT");
-    if (port == null) {
-      port = "4567";
-    }
-
   baseUrl = "https://dry-bastion-22033.herokuapp.com/";
 }
 
