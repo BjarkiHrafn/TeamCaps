@@ -27,7 +27,7 @@ public abstract class SeleniumTestWrapper {
     baseUrl = "http://localhost:" + port;
   }
 
-@AfterClass
+  @AfterClass
   public static void closeBrowser() {
 
     driver.quit();
