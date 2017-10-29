@@ -22,6 +22,7 @@ public void testInputX() throws Exception {
   input.sendKeys("1");
   input.submit();
   assertEquals("X", message.getText());
+}
 
   @Test
   public void testIllegalInput() throws Exception {
@@ -32,7 +33,6 @@ public void testInputX() throws Exception {
     input.sendKeys("0");
     Thread.sleep(5000);
     input.submit();
-    Thread.sleep(5000);
 
     assertEquals("Error, illegal position...", message.getText());
 }
@@ -51,3 +51,4 @@ public void testInputX() throws Exception {
 
     assertEquals("X", player.getText());
   }
+}
