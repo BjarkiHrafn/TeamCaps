@@ -13,12 +13,12 @@ TicTacToe
 
 ### Prerequisites
 >
-> Have a internet-browswer on your computer or system that supports javascript.
+> Have a webbrowser on your computer or system that supports Javascript.
 
 ### Deployment
 > 
 > Add additional notes about how to deploy this on a live system
-> TODO::Smári ?
+> See administration manual.
 
 ### Built With
 >

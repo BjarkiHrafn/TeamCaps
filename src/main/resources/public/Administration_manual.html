@@ -5,16 +5,18 @@
     <li><a href="https://docs.oracle.com/javase/8/docs/technotes/guides/install/install_overview.html">Java Development Kit 8</a> - Installation guide After installing gradle and JDK 8 on your current system the PATH needs to be set <a href="https://www.java.com/en/download/help/path.xml">Guide</a></li>
     <li><p><a href="https://git-scm.com/downloads">Git 2.14.3</a> - Download link</p><h2>Build</h2></li>
     <li>Need to clone the repository from <a href="https://github.com/HUGB2017TeamCapslock/TeamCaps">TeamCaps</a> and get permission see Source control client below.</li>
-    <li>In git, run gitbash in a fresh directory and run the command "git clone git@github.com:HUGB2017TeamCapslock/TeamCaps.git", this will clone the current master of the repository on your pc.</li>
+    <li>In git, run gitbash in a fresh directory and run the command "git clone git@github.com:HUGB2017TeamCapslock/TeamCaps.git", this will clone the current master branch of the repository on your pc.</li>
     <li>To build run the command "gradle build" this will build the project on your own staging, make sure to make a new feature branch before making any changes to the current build.</li>
+    <li>To run locally, run the command "gradle run" and open your web browser. Open the url http://localhost:4567 and you should see the program running.</li>
   </ul>
-</blockquote><h3>How to deploy, run and maintain</h3><p>in case of client/server or web application</p>
+</blockquote><h3>How to deploy, run and maintain</h3>
 <blockquote><h2>How to deploy</h2>
   <ul>
-    <li><p>By merging a feature branch with master travis automaticly deploys the new master. Git command "git push -u origin <feature branch name>"</p><h2>How to run</h2></li>
-    <li><p>git command "gradle run" to run locally, othervice the current deployment is at <a href="https://dry-bastion-22033.herokuapp.com/">Site</a></p><h2>How to maintain</h2></li>
+    <li><p>By merging a feature branch with origin/master, Travis automatically deploys the new master with the new content. Git command: "git push -u origin <feature branch name>"</p><h2>How to run</h2></li>
+    <li><p>Use git command "gradle run" to run locally, otherwise the current deployment is at <a href="https://dry-bastion-22033.herokuapp.com/">Site</a></p><h2>How to maintain</h2></li>
     <li>Make a pull request to github by pushing a finished feature on a branch to origin/master with git command "git push -u origin <branchName>".</li>
     <li>From github repository make a pull request on branches with features that need to be deployed, this is linked to <a href="https://travis-ci.org/">Travis</a>. If travis build goes through green go to next step. If it goes red start over with a new pull request with corrected source code.</li>
     <li>From github repository access the pull request that should now be accepted by <a href="https://travis-ci.org/">Travis</a> and merge pull request.</li>
+    <li>Travis automatically deploys the Travis-accepted new version to Heroku server.</li>
   </ul>
 </blockquote>

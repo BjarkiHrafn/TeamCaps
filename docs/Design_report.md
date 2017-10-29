@@ -1,7 +1,11 @@
 Design report
 =============
 
-Document describing the initial design.
+> The initial design plan was a double layered system. As we are not using database for storing information in this simple project the traditional
+> triple layered design (UI->Business->Database) was dropped. We decided which functions we would need and how to store the game board
+> and drew everything up on a table. After a lot of brainstorming the results were as displayed in the class diagram below.
+> This of course changed a bit after the game was updated into a web app. That presented one new function in the business class which was
+> required to convert the game board into a string to be able to send it to the server as well as the omission of the Interface class.
 
 ## Class Diagram
 
