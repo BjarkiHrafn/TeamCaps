@@ -17,9 +17,9 @@ public abstract class SeleniumTestWrapper {
 
   @BeforeClass
   public static void openBrowser() {
+    ChromeOptions options = new ChromeOptions();
+    //System.setProperty("webdriver.chrome.driver", "/usr/bin/chromium-browser");
 
-    System.setProperty("webdriver.chrome.driver", "/usr/bin/chromium-browser");
-    //driver = new ChromeDriver(dc);
     driver = new ChromeDriver();
     driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
@@ -40,18 +40,5 @@ public abstract class SeleniumTestWrapper {
 
     driver.quit();
   }
-
-  public static WebDriver chromeBrowser(){
-      System.setProperty("webdriver.chrome.driver", "/path/to/chromedriver");
-      ChromeOptions options = new ChromeOptions();
-      options.addArguments("--no-sandbox");
-      options.addArguments("--headless");
-      WebDriver browser = new ChromeDriver(options);
-      browser.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-      return browser;
-
-  }
-
-
 
 }
