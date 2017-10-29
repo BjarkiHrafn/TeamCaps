@@ -10,8 +10,8 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 
 public abstract class SeleniumTestWrapper {
 
-  //static ChromeDriver driver;
-  static WebDriver driver;
+  static ChromeDriver driver;
+  //static WebDriver driver;
   static String baseUrl;
   static String port;
 
@@ -20,9 +20,11 @@ public abstract class SeleniumTestWrapper {
   @BeforeClass
   public static void openBrowser() {
 
-    //driver = new ChromeDriver(dc);
-    driver = webDriver();
+    driver = new ChromeDriver();
+    //driver = webDriver();
     driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
+
 
     port = System.getenv("PORT");
 
@@ -31,7 +33,11 @@ public abstract class SeleniumTestWrapper {
       port = "4567";
     }
 
-    baseUrl = "http://localhost:" + port;
+    //baseUrl = System.getProperty("user.dir") + "/servers/server.txt";
+    baseUrl = "https://dry-bastion-22033.herokuapp.com/";
+
+    //baseUrl = "http://localhost:" + port;
+
   }
 
 
@@ -42,7 +48,7 @@ public abstract class SeleniumTestWrapper {
     driver.quit();
   }
 
-  public static WebDriver webDriver() {
+  public static ChromeDriver webDriver() {
       final ChromeOptions chromeOptions = new ChromeOptions();
       chromeOptions.setBinary(System.getProperty("google.chrome"));
       chromeOptions.addArguments("--no-sandbox");
