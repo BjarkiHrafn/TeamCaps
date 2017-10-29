@@ -30,7 +30,7 @@ public class TestWeb  {
 
   @AfterClass
   public static void endOfSession() {
-    driver.close();
+    driver.quit();
   }
 
   @Test
