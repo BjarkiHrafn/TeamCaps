@@ -78,4 +78,4 @@ task selenium(type: Test, dependsOn: installDist) {
 
   }
 
-//build.finalizedBy(selenium)
+build.finalizedBy(selenium)
