@@ -5,6 +5,7 @@ import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 
 public abstract class SeleniumTestWrapper {
@@ -38,6 +39,17 @@ public abstract class SeleniumTestWrapper {
   public static void closeBrowser() {
 
     driver.quit();
+  }
+
+  public static WebDriver chromeBrowser(){
+      System.setProperty("webdriver.chrome.driver", "/path/to/chromedriver");
+      ChromeOptions options = new ChromeOptions();
+      options.addArguments("--no-sandbox");
+      options.addArguments("--headless");
+      WebDriver browser = new ChromeDriver(options);
+      browser.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+      return browser;
+
   }
 
 
