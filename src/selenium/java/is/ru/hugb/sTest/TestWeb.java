@@ -1,3 +1,4 @@
+
 package is.ru.sTest;
 
 import static org.junit.Assert.assertEquals;
@@ -57,3 +58,4 @@ public class TestWeb extends SeleniumTestWrapper {
   }
 
 }
+
