@@ -26,6 +26,12 @@ public class WebUI {
 		get(
 			"/getTable",
 			(request, response) -> {
+				if(business.isGameWon(business.board)){
+					return business.boardToString(board) + "Game over";
+				}
+				else if(playerCounter == 9){
+					return business.boardToString(board) + "Draw";
+				}
 				return business.boardToString(board);
 			}
 		);
@@ -50,11 +56,12 @@ public class WebUI {
 				business.updateBoard(player, cell);
 				playerCounter++;
 
-				if(playerCounter == 9){
-					return business.boardToString(board) + "Draw";
-				}
 				if(business.isGameWon(business.board)){
-					return business.boardToString(board) + "Game over";
+					// playerCounter - 1 because after a player wins the next players turn begins
+					return business.boardToString(board) + business.playerXorO(playerCounter - 1) + " wins!";
+				}
+				else if(playerCounter == 9){
+					return business.boardToString(board) + "Draw";
 				}
 				return business.boardToString(board);
 			}

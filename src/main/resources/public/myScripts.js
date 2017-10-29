@@ -3,8 +3,17 @@ $(document).ready(function() {
 		type: 'GET',
 		url: '/getTable',
 	}).done(function(result) {
-		for(var i = 0; i < 10; i++){
-			$('#' + (i + 1)).html(result.charAt(i)).attr('class', 'alert alert-success');
+		if(result.length > 10){
+			for(var i = 0; i < 10; i++){
+					$('#' + (i + 1)).html(result.charAt(i)).attr('class', 'alert alert-success');
+			}
+			$('#gameStatus').html(result.substring(9));
+			$('#play').attr('disabled', true);
+		}
+		else {
+			for(var i = 0; i < 10; i++){
+				$('#' + (i + 1)).html(result.charAt(i)).attr('class', 'alert alert-success');
+			}
 		}
 	}).fail(function() {
 		$('#bla').html('Failed to load table! \n Contact team caps lock for support.').attr('class', 'alert alert-danger');
