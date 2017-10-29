@@ -11,7 +11,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 public abstract class SeleniumTestWrapper {
 
   static ChromeDriver driver;
-  //static WebDriver driver;
+  //static WebDriver driver;ss
   static String baseUrl;
   static String port;
 //sss
