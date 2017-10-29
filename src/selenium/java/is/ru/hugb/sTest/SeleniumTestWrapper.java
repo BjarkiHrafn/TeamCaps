@@ -20,6 +20,7 @@ public abstract class SeleniumTestWrapper {
   public static void openBrowser() {
 
     final ChromeOptions chromeOptions = new ChromeOptions();
+    chromeOptions.setBinary("/path/to/google-chrome-stable");
     chromeOptions.addArguments("--headless");
     chromeOptions.addArguments("--disable-gpu");
 
