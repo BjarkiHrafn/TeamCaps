@@ -115,7 +115,7 @@ public class BusinessTest {
   public void testBoardToString() {
 	char[][] board = Business.initializeBoard();
 	String boardString = Business.boardToString(board);
-	
+
 	assertEquals("123456789", boardString);
   }
 }

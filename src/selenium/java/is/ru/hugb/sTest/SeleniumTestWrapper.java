@@ -24,7 +24,7 @@ public abstract class SeleniumTestWrapper {
       port = "4567";
     }
 
-    baseUrl = "http://localhost:" + port;
+    baseUrl = "https://dry-bastion-22033.herokuapp.com/";
   }
 
 @AfterClass
