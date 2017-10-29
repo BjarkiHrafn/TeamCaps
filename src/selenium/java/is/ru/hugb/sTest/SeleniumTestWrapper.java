@@ -1,51 +1,33 @@
 package is.ru.sTest;
 
-import java.util.concurrent.TimeUnit;
-import org.junit.AfterClass;
-import org.junit.BeforeClass;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.remote.DesiredCapabilities;
+import static org.junit.Assert.assertEquals;
 
-public abstract class SeleniumTestWrapper {
+import org.junit.Test;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 
-  //static ChromeDriver driver;
-  static WebDriver driver;
-  static String baseUrl;
-  static String port;
+public class TestWeb extends SeleniumTestWrapper {
 
-  @BeforeClass
-  public static void openBrowser() {
+  @Test
+  public void testTitleMatches() {
 
-    //driver = new ChromeDriver(dc);
-    driver = webDriver();
-    driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+    driver.get(baseUrl);
 
-    port = System.getenv("PORT");
-
-    if (port == null) {
-
-      port = "4567";
-    }
-
-    baseUrl = "http://localhost:" + port;
+    assertEquals("team caps lock", driver.getTitle());
   }
 
-  @AfterClass
-  public static void closeBrowser() {
+  @Test
+  public void testInputX() throws Exception {
+    driver.get(baseUrl);
 
-    driver.quit();
+    Thread.sleep(5000);
+    WebElement input = driver.findElement(By.id("xIn"));
+    WebElement message = driver.findElement(By.id("5"));
+    input.sendKeys("5");
+    input.submit();
+      Thread.sleep(5000);
+    assertEquals("X", message.getText());
+
   }
 
-  public static WebDriver webDriver() {
-    final ChromeOptions chromeOptions = new ChromeOptions();
-    chromeOptions.setBinary(System.getProperty("google.chrome"));
-    chromeOptions.addArguments("--headless");
-    chromeOptions.addArguments("--disable-gpu");
-    final DesiredCapabilities dc = new DesiredCapabilities();
-    dc.setJavascriptEnabled(true);
-    dc.setCapability(ChromeOptions.CAPABILITY, chromeOptions);
-    return new ChromeDriver(dc);
-  }
 }
