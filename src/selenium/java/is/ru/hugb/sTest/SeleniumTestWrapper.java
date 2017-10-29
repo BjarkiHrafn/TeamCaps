@@ -3,8 +3,6 @@ package is.ru.sTest;
 import java.util.concurrent.TimeUnit;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public abstract class SeleniumTestWrapper {
@@ -19,7 +17,6 @@ public abstract class SeleniumTestWrapper {
 
     baseUrl = "https://dry-bastion-22033.herokuapp.com/";
   }
-
 
   @AfterClass
   public static void closeBrowser() {
