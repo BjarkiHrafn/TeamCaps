@@ -15,8 +15,6 @@ public abstract class SeleniumTestWrapper {
   static String baseUrl;
   static String port;
 
-  
-
   @BeforeClass
   public static void openBrowser() {
 
@@ -34,8 +32,6 @@ public abstract class SeleniumTestWrapper {
     baseUrl = "http://localhost:" + port;
   }
 
-
-
   @AfterClass
   public static void closeBrowser() {
 
@@ -43,16 +39,13 @@ public abstract class SeleniumTestWrapper {
   }
 
   public static WebDriver webDriver() {
-      final ChromeOptions chromeOptions = new ChromeOptions();
-      chromeOptions.setBinary(System.getProperty("google.chrome"));
-      chromeOptions.addArguments("--headless");
-      chromeOptions.addArguments("--disable-gpu");
-      final DesiredCapabilities dc = new DesiredCapabilities();
-      dc.setJavascriptEnabled(true);
-      dc.setCapability(
-          ChromeOptions.CAPABILITY, chromeOptions
-      );
-      return new ChromeDriver(dc);
+    final ChromeOptions chromeOptions = new ChromeOptions();
+    chromeOptions.setBinary(System.getProperty("google.chrome"));
+    chromeOptions.addArguments("--headless");
+    chromeOptions.addArguments("--disable-gpu");
+    final DesiredCapabilities dc = new DesiredCapabilities();
+    dc.setJavascriptEnabled(true);
+    dc.setCapability(ChromeOptions.CAPABILITY, chromeOptions);
+    return new ChromeDriver(dc);
   }
-
 }
