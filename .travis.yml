@@ -26,4 +26,3 @@ script:
   - ./gradlew check
   - whereis google-chrome-stable
   - whereis chromedriver
-  - ./gradlew selenium
