@@ -14,7 +14,7 @@ public abstract class SeleniumTestWrapper {
   //static WebDriver driver;
   static String baseUrl;
   static String port;
-
+//sss
   @BeforeClass
   public static void openBrowser() {
     ChromeOptions options = new ChromeOptions();
