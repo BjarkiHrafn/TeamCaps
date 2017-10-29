@@ -68,7 +68,7 @@ spotless {
 //SELENIUM
 //End to end test
 task selenium(type: Test, dependsOn: installDist) {
-  //testClassesDir = sourceSets.selenium.output.classesDir
+  testClassesDir = sourceSets.selenium.output.classesDir
   classpath = sourceSets.selenium.runtimeClasspath
 
   doFirst{

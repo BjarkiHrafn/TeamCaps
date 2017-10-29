@@ -22,10 +22,10 @@ public class TestWeb extends SeleniumTestWrapper {
 
     Thread.sleep(5000);
     WebElement input = driver.findElement(By.id("xIn"));
-    WebElement message = driver.findElement(By.id("debug"));
+    WebElement message = driver.findElement(By.id("1"));
     input.sendKeys("1");
     input.submit();
-    assertEquals("1338", message.getText());
+    assertEquals("X", message.getText());
 
   }
 
