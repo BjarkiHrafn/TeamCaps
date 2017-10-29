@@ -103,12 +103,67 @@ $(document).ready(function() {
 	})
 	
 	var docDesButton = $('#docDesButton');
+	var docAdmButton = $('#docAdmButton');
+	var docDevButton = $('#docDevButton');
+	var docWorkButton = $('#docWorkButton');
+	
 	docDesButton.click( function () {
-		var doc = document.getElementById("dReport");
 		if ($('#dReport').is(":visible")) {
-			$('#dReport').hide();;
-		} else {
+			$('#dReport').hide();
+		}
+		else if($('#aManual').is(":visible") || $('#dManual').is(":visible") || $('#wRules').is(":visible")) {
+			$('#aManual').hide();
+			$('#dManual').hide();
+			$('#wRules').hide();
 			$('#dReport').show();
+		}
+		else {
+			$('#dReport').show();
+		}
+	})
+	
+	docAdmButton.click( function () {
+		if ($('#aManual').is(":visible")) {
+			$('#aManual').hide();
+		}
+		else if($('#dReport').is(":visible") || $('#dManual').is(":visible") || $('#wRules').is(":visible")){
+			$('#dReport').hide();
+			$('#dManual').hide();
+			$('#wRules').hide();
+			$('#aManual').show();
+		}
+		else {
+			$('#aManual').show();
+		}
+	})
+	
+	docDevButton.click( function () {
+		if ($('#dManual').is(":visible")) {
+			$('#dManual').hide();
+		}
+		else if($('#dReport').is(":visible") || $('#aManual').is(":visible") || $('#wRules').is(":visible")){
+			$('#dReport').hide();
+			$('#aManual').hide();
+			$('#wRules').hide();
+			$('#dManual').show();
+		}
+		else {
+			$('#dManual').show();
+		}
+	})
+	
+	docWorkButton.click( function () {
+		if ($('#wRules').is(":visible")) {
+			$('#wRules').hide();
+		}
+		else if($('#dReport').is(":visible") || $('#aManual').is(":visible") || $('#dManual').is(":visible")){
+			$('#dReport').hide();
+			$('#aManual').hide();
+			$('#dManual').hide();
+			$('#wRules').show();
+		}
+		else {
+			$('#wRules').show();
 		}
 	})
 });

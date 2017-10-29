@@ -107,17 +107,4 @@ public class Business {
     }
     return builder.toString();
   }
-
-  /*public static char[][] stringToBoard(String board) {
-     char[][] cBoard = new char[3][3];
-  int boardCounter = 0;
-
-     for (int i = 0; i < 3; i++) {
-       for (int j = 0; j < 3; j++) {
-         cBoard[i][j] = board.charAt(boardCounter);
-  	boardCounter++;
-       }
-     }
-     return cBoard;
-   }*/
 }
