@@ -3,7 +3,7 @@ Work rules
 
 Concerning git operations
 -------------------------
-
+>
 > ### commit 
 > 
 > * All comments are written in english.
@@ -11,15 +11,15 @@ Concerning git operations
 		 
 > ### add
 > 
-> * Under no circumstances should the command "git add ." be used.
+> * The command "git add ." should only be used if working on a file that is not on github.com.
 > * Instead the command "git add -p" should be used.
 		 
 Concerning coding practices and rules
 -------------------------------------
-
+>
 > ### code
 > 
-> * This projects is automaticly checked for code format and that follows [Google java code format](https://google.github.io/styleguide/javaguide.html).
+> * This projects code is scanned automatically for code format errors that follows [Google java code format](https://google.github.io/styleguide/javaguide.html).
 
 > #### code example from google java format
 > ```javascript

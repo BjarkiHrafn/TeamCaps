@@ -9,6 +9,10 @@ public class WebUI {
   private static int playerCounter;
 
   public WebUI() {
+    initializeGame();
+  }
+
+  public static void initializeGame() {
     business = new Business();
     board = business.board;
     playerCounter = 0;
@@ -22,7 +26,14 @@ public class WebUI {
     get(
         "/getTable",
         (request, response) -> {
-          return ui.boardToString(board);
+          if (business.isGameWon(business.board)) {
+            return business.boardToString(board)
+                + business.playerXorO(playerCounter - 1)
+                + " wins!";
+          } else if (playerCounter == 9) {
+            return business.boardToString(board) + "Draw";
+          }
+          return business.boardToString(board);
         });
 
     get(
@@ -36,9 +47,22 @@ public class WebUI {
         (req, res) -> {
           int cell = Integer.parseInt(req.queryParams("xIn"));
           char player = business.playerXorO(playerCounter);
-		  business.updateBoard(player, cell);
-		  playerCounter++;
-		  return ui.boardToString(board);
+
+          if (business.checkIfOccupied(board, cell)) {
+            throw new Exception();
+          }
+
+          business.updateBoard(player, cell);
+          playerCounter++;
+
+          if (business.isGameWon(business.board)) {
+            return business.boardToString(board)
+                + business.playerXorO(playerCounter - 1)
+                + " wins!";
+          } else if (playerCounter == 9) {
+            return business.boardToString(board) + "Draw";
+          }
+          return business.boardToString(board);
         });
 
     get(
@@ -47,21 +71,17 @@ public class WebUI {
           String cell = req.params(":input");
           return cell;
         });
+
+    post(
+        "/resetGame",
+        (request, response) -> {
+          ui.initializeGame();
+          return business.boardToString(board);
+        });
   }
 
   private static char[][] printBoard() {
     return board;
-  }
-
-  private static String boardToString(char[][] board) {
-    StringBuilder builder = new StringBuilder();
-
-    for (int i = 0; i < 3; i++) {
-      for (int j = 0; j < 3; j++) {
-        builder.append(board[i][j]);
-      }
-    }
-    return builder.toString();
   }
 
   static int getHerokuPort() {
