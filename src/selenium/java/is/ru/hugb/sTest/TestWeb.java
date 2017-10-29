@@ -58,66 +58,7 @@ public class TestWeb extends SeleniumTestWrapper {
     assertEquals("X", player.getText());
   }
 
-  package is.ru.sTest;
-
-import static org.junit.Assert.assertEquals;
-import org.junit.Test;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-
-public class TestWeb extends SeleniumTestWrapper {
-
-@Test
-public void testTitleMatches() {
-  driver.get(baseUrl);
-  assertEquals("team caps lock", driver.getTitle());
-}
-
-@Test
-public void testInputX() throws Exception {
-  driver.get(baseUrl);
-  Thread.sleep(5000);
-  WebElement input = driver.findElement(By.id("xIn"));
-  WebElement message = driver.findElement(By.id("1"));
-  WebElement button = driver.findElement(By.id("resetGame"));
-  button.click();
-
-  Thread.sleep(5000);
-  input.sendKeys("1");
-  input.submit();
-  Thread.sleep(5000);
-  assertEquals("X", message.getText());
-}
-
   @Test
-  public void testIllegalInput() throws Exception {
-    driver.get(baseUrl);
-    Thread.sleep(5000);
-    WebElement input = driver.findElement(By.id("xIn"));
-    WebElement message = driver.findElement(By.id("error"));
-    input.sendKeys("0");
-    input.submit();
-    //Thread.sleep(5000);
-
-    assertEquals("Error, illegal position...", message.getText());
-}
-
-  @Test
-  public void testSwitchPlayer() throws Exception {
-    driver.get(baseUrl);
-    Thread.sleep(5000);
-
-    WebElement input = driver.findElement(By.id("xIn"));
-    WebElement player = driver.findElement(By.id("pRound"));
-    assertEquals("O", player.getText());
-    Thread.sleep(5000);
-    input.sendKeys("2");
-    input.submit();
-    Thread.sleep(5000);
-
-    assertEquals("X", player.getText());
-  }
-
   public void testWin() throws Exception {
     WebElement button = driver.findElement(By.id("resetGame"));
     button.click();
@@ -135,10 +76,5 @@ public void testInputX() throws Exception {
 
     WebElement result = driver.findElement(By.id("gameStatus"));
     assertEquals("X wins!", result.getText());
-
-
   }
-}
-
-
 }
