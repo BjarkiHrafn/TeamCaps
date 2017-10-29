@@ -1,9 +1,17 @@
-$(document).ready(function() {
+$(document).ready(function() {	
+	$('#dReport').load("Design_report.html");
+	$('#aManual').load("Administration_manual.html");
+	$('#dManual').load("Development_manual.html");
+	$('#wRules').load("Work_rules.html");
+	$('#dReport').hide();
+	$('#aManual').hide();
+	$('#dManual').hide();
+	$('#wRules').hide();
+
 	$.ajax({
 		type: 'GET',
 		url: '/getTable',
 	}).done(function(result) {
-		$('#devman').load("Design_report.html");
 		if(result.length > 10){
 			for(var i = 0; i < 10; i++){
 				$('#' + (i + 1)).html(result.charAt(i)).attr('class', 'alert alert-success');
@@ -92,5 +100,15 @@ $(document).ready(function() {
 		}).fail(function() {
 			$('#error').html('Error, illegal position...').attr('class', 'alert alert-danger');
 		});
+	})
+	
+	var docDesButton = $('#docDesButton');
+	docDesButton.click( function () {
+		var doc = document.getElementById("dReport");
+		if ($('#dReport').is(":visible")) {
+			$('#dReport').hide();;
+		} else {
+			$('#dReport').show();
+		}
 	})
 });
