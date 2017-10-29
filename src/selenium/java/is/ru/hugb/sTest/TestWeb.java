@@ -1,4 +1,6 @@
 
+
+
 package is.ru.sTest;
 
 import static org.junit.Assert.assertEquals;
@@ -27,7 +29,7 @@ public class TestWeb extends SeleniumTestWrapper {
     input.sendKeys("1");
     input.submit();
     assertEquals("X", message.getText());
-  }
+
 
   @Test
   public void testIllegalInput() throws Exception {
@@ -55,7 +57,4 @@ public class TestWeb extends SeleniumTestWrapper {
     input.submit();
     Thread.sleep(5000);
     assertEquals("X", player.getText());
-  }
-
-}
 
