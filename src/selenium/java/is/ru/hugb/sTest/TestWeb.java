@@ -13,7 +13,7 @@ public class TestWeb extends SeleniumTestWrapper {
     //System.setProperty("Web");
     driver.get(baseUrl);
 
-    assertEquals("team caps lock", driver.getTitle());
+    assertEquals("baldurs geit", driver.getTitle());
   }
 
   /*@Test
