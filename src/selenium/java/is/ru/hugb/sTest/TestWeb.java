@@ -19,8 +19,13 @@ public void testInputX() throws Exception {
   Thread.sleep(5000);
   WebElement input = driver.findElement(By.id("xIn"));
   WebElement message = driver.findElement(By.id("1"));
+  WebElement button = driver.findElement(By.id("resetGame"));
+  button.click();
+
+  Thread.sleep(5000);
   input.sendKeys("1");
   input.submit();
+  Thread.sleep(5000);
   assertEquals("X", message.getText());
 }
 
