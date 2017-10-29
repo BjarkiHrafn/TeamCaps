@@ -11,7 +11,7 @@ Concerning git operations
 		 
 > ### add
 > 
-> * Under no circumstances should the command "git add ." be used.
+> * The command "git add ." should only be used if working on a file that is not on github.com.
 > * Instead the command "git add -p" should be used.
 		 
 Concerning coding practices and rules
