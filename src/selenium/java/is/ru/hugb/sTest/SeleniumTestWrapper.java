@@ -10,18 +10,20 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 
 public abstract class SeleniumTestWrapper {
 
-  //static ChromeDriver driver;
-  static WebDriver driver;
-  static String baseUrl;
-  static String port;
+  public static WebDriver driver;
+  public static String baseUrl;
+  public static String port;
 
   
 
   @BeforeClass
   public static void openBrowser() {
 
-    //driver = new ChromeDriver(dc);
-    driver = webDriver();
+    final ChromeOptions chromeOptions = new ChromeOptions();
+    chromeOptions.addArguments("--headless");
+    chromeOptions.addArguments("--disable-gpu");
+
+    driver = new ChromeDriver();
     driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
     port = System.getenv("PORT");
