@@ -1,3 +1,4 @@
+
 package is.ru.sTest;
 
 import static org.junit.Assert.assertEquals;
@@ -22,9 +23,27 @@ public class TestWeb extends SeleniumTestWrapper {
 
     Thread.sleep(5000);
     WebElement input = driver.findElement(By.id("xIn"));
-    WebElement message = driver.findElement(By.id("debug"));
+    WebElement message = driver.findElement(By.id("1"));
     input.sendKeys("1");
     input.submit();
-    assertEquals("1338", message.getText());
+    assertEquals("X", message.getText());
   }
+
+  @Test
+  public void testIllegalInput() throws Exception {
+    driver.get(baseUrl);
+
+    Thread.sleep(5000);
+    WebElement input = driver.findElement(By.id("xIn"));
+    WebElement message = driver.findElement(By.id("error"));
+    input.sendKeys("0");
+    Thread.sleep(5000);
+    input.submit();
+    Thread.sleep(5000);
+    assertEquals("Error, illegal position...", message.getText());
+
+
+  }
+
 }
+
