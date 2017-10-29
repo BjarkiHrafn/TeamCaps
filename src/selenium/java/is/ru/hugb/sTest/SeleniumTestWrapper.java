@@ -18,7 +18,7 @@ public abstract class SeleniumTestWrapper {
   @BeforeClass
   public static void openBrowser() {
 
-    //System.setProperty("webdriver.chrome.driver", "path/to/chromedriver");
+    System.setProperty("webdriver.chrome.driver", "C:\\Users\\Notandi\\Downloads\\Selenium\\chromedriver.exe");
     //driver = new ChromeDriver(dc);
     driver = new ChromeDriver();
     driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
