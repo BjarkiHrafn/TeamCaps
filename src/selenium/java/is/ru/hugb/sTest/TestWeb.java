@@ -25,7 +25,5 @@ public class TestWeb extends SeleniumTestWrapper {
     input.sendKeys("1");
     input.submit();
     assertEquals("X", message.getText());
-
   }
-
 }

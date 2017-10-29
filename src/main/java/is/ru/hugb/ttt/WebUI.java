@@ -9,13 +9,13 @@ public class WebUI {
   private static int playerCounter;
 
   public WebUI() {
-      initializeGame();
+    initializeGame();
   }
 
   public static void initializeGame() {
-	  business = new Business();
-	  board = business.board;
-      playerCounter = 0;
+    business = new Business();
+    board = business.board;
+    playerCounter = 0;
   }
 
   public static void main(String[] args) {
@@ -41,22 +41,21 @@ public class WebUI {
           int cell = Integer.parseInt(req.queryParams("xIn"));
           char player = business.playerXorO(playerCounter);
 
-		  if(business.checkIfOccupied(board, cell)){
-			  throw new Exception();
-		  }
-		  
-		  business.updateBoard(player, cell);
-		  playerCounter++;
-		  
-		  if(playerCounter == 9){
-			  return business.boardToString(board) + "Draw";
-		  }
-		  if(business.isGameWon(business.board)){
-			  return business.boardToString(board) + "Game over";
-		  }
-		  
-		  
-		  return business.boardToString(board);
+          if (business.checkIfOccupied(board, cell)) {
+            throw new Exception();
+          }
+
+          business.updateBoard(player, cell);
+          playerCounter++;
+
+          if (playerCounter == 9) {
+            return business.boardToString(board) + "Draw";
+          }
+          if (business.isGameWon(business.board)) {
+            return business.boardToString(board) + "Game over";
+          }
+
+          return business.boardToString(board);
         });
 
     get(
@@ -65,13 +64,13 @@ public class WebUI {
           String cell = req.params(":input");
           return cell;
         });
-		
-	post(
-		"/resetGame",
-		(request, response) -> {
-			ui.initializeGame();
-			return business.boardToString(board);
-		});
+
+    post(
+        "/resetGame",
+        (request, response) -> {
+          ui.initializeGame();
+          return business.boardToString(board);
+        });
   }
 
   private static char[][] printBoard() {

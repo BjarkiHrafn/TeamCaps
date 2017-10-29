@@ -1,5 +1,9 @@
 package is.ru.sTest;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
@@ -7,10 +11,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
 
 public abstract class SeleniumTestWrapper {
 
@@ -18,19 +18,17 @@ public abstract class SeleniumTestWrapper {
   public static String baseUrl;
   public static String port;
 
-  
-
   @BeforeClass
   public static void openBrowser() {
-    
+
     final ChromeOptions chromeOptions = new ChromeOptions();
     chromeOptions.setBinary("/path/to/google-chrome-stable");
     chromeOptions.addArguments("--headless");
     chromeOptions.addArguments("--disable-gpu");
-  
+
     driver = new ChromeDriver();
     driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-    
+
     port = System.getenv("PORT");
 
     if (port == null) {
@@ -40,10 +38,7 @@ public abstract class SeleniumTestWrapper {
 
     //baseUrl = "http://localhost:" + port;
     baseUrl = "https://dry-bastion-22033.herokuapp.com/";
-
   }
-
-
 
   @AfterClass
   public static void closeBrowser() {
@@ -51,50 +46,35 @@ public abstract class SeleniumTestWrapper {
     driver.quit();
   }
 
-  private static void setBaseURL()
-    {
+  private static void setBaseURL() {
     String serverFilePath = System.getProperty("user.dir") + "/servers/server.txt";
-        try
-    {
+    try {
       BufferedReader reader;
       reader = new BufferedReader(new FileReader(serverFilePath));
-      try
-      {
+      try {
         baseUrl = reader.readLine();
-      }
-      catch (IOException e)
-      {
+      } catch (IOException e) {
         e.printStackTrace();
-      }
-      finally
-      {
-        try
-        {
+      } finally {
+        try {
           reader.close();
-        }
-        catch (IOException e)
-        {
+        } catch (IOException e) {
           e.printStackTrace();
         }
       }
-    }
-    catch (FileNotFoundException e)
-    {
+    } catch (FileNotFoundException e) {
       e.printStackTrace();
     }
-    }
-
-  public static WebDriver webDriver() {
-      final ChromeOptions chromeOptions = new ChromeOptions();
-      chromeOptions.setBinary(System.getProperty("google.chrome"));
-      chromeOptions.addArguments("--headless");
-      chromeOptions.addArguments("--disable-gpu");
-      final DesiredCapabilities dc = new DesiredCapabilities();
-      dc.setJavascriptEnabled(true);
-      dc.setCapability(
-          ChromeOptions.CAPABILITY, chromeOptions
-      );
-      return new ChromeDriver(dc);
   }
 
+  public static WebDriver webDriver() {
+    final ChromeOptions chromeOptions = new ChromeOptions();
+    chromeOptions.setBinary(System.getProperty("google.chrome"));
+    chromeOptions.addArguments("--headless");
+    chromeOptions.addArguments("--disable-gpu");
+    final DesiredCapabilities dc = new DesiredCapabilities();
+    dc.setJavascriptEnabled(true);
+    dc.setCapability(ChromeOptions.CAPABILITY, chromeOptions);
+    return new ChromeDriver(dc);
+  }
 }
