@@ -33,6 +33,7 @@ public abstract class SeleniumTestWrapper {
       port = "4567";
     }
 
+    //baseUrl = System.getProperty("user.dir") + "/servers/server.txt";
     baseUrl = "https://dry-bastion-22033.herokuapp.com/";
 
     //baseUrl = "http://localhost:" + port;
