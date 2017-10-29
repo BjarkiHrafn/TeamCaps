@@ -7,23 +7,30 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 
 public abstract class SeleniumTestWrapper {
 
-  //static ChromeDriver driver;
-  static WebDriver driver;
-  static String baseUrl;
-  static String port;
+  public static WebDriver driver;
+  public static String baseUrl;
+  public static String port;
 
   
 
   @BeforeClass
   public static void openBrowser() {
-
-    //driver = new ChromeDriver(dc);
-    driver = webDriver();
+    
+    final ChromeOptions chromeOptions = new ChromeOptions();
+    chromeOptions.setBinary("/path/to/google-chrome-stable");
+    chromeOptions.addArguments("--headless");
+    chromeOptions.addArguments("--disable-gpu");
+  
+    driver = new ChromeDriver();
     driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-
+    
     port = System.getenv("PORT");
 
     if (port == null) {
@@ -31,7 +38,9 @@ public abstract class SeleniumTestWrapper {
       port = "4567";
     }
 
-    baseUrl = "http://localhost:" + port;
+    //baseUrl = "http://localhost:" + port;
+    baseUrl = "https://dry-bastion-22033.herokuapp.com/";
+
   }
 
 
@@ -41,6 +50,39 @@ public abstract class SeleniumTestWrapper {
 
     driver.quit();
   }
+
+  private static void setBaseURL()
+    {
+    String serverFilePath = System.getProperty("user.dir") + "/servers/server.txt";
+        try
+    {
+      BufferedReader reader;
+      reader = new BufferedReader(new FileReader(serverFilePath));
+      try
+      {
+        baseUrl = reader.readLine();
+      }
+      catch (IOException e)
+      {
+        e.printStackTrace();
+      }
+      finally
+      {
+        try
+        {
+          reader.close();
+        }
+        catch (IOException e)
+        {
+          e.printStackTrace();
+        }
+      }
+    }
+    catch (FileNotFoundException e)
+    {
+      e.printStackTrace();
+    }
+    }
 
   public static WebDriver webDriver() {
       final ChromeOptions chromeOptions = new ChromeOptions();
