@@ -23,6 +23,6 @@ deploy:
   on:
     repo: HUGB2017TeamCapslock/TeamCaps
 script:
-  - ./gradlew check
+  - ./gradlew build
   - whereis google-chrome-stable
   - whereis chromedriver
