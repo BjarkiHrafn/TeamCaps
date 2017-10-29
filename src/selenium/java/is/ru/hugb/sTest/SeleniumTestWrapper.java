@@ -20,8 +20,8 @@ public abstract class SeleniumTestWrapper {
   @BeforeClass
   public static void openBrowser() {
 
-    //driver = new ChromeDriver(dc);
-    driver = webDriver();
+    driver = new ChromeDriver();
+    //driver = new chromedriver();
     driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
     port = System.getenv("PORT");
