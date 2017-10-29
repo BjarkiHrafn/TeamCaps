@@ -7,8 +7,31 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import java.util.concurrent.TimeUnit;
+import org.junit.AfterClass;
+import org.junit.BeforeClass;
 
-public class TestWeb extends SeleniumTestWrapper {
+
+public class TestWeb  {
+  static WebDriver driver;
+  static String baseUrl;
+  static String port;
+
+  @BeforeClass
+  public static void initialize() {
+    driver = new ChromeDriver();
+    port = System.getenv("PORT");
+    if(port == null) {
+      port = "4567";
+    }
+    baseUrl = "http://localhost:"+port;
+    driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+  }
+
+  @AfterClass
+  public static void endOfSession() {
+    driver.close();
+  }
 
   @Test
   public void testTitleMatches() {
