@@ -61,20 +61,30 @@ public class TestWeb extends SeleniumTestWrapper {
   @Test
   public void testWin() throws Exception {
     WebElement button = driver.findElement(By.id("resetGame"));
-    button.click();
+   button.click();
 
-    WebElement input = driver.findElement(By.id("xIn"));
-    WebElement input2 = driver.findElement(By.id("xIn"));
-    WebElement input3 = driver.findElement(By.id("xIn"));
-    WebElement input4 = driver.findElement(By.id("xIn"));
-    WebElement input5 = driver.findElement(By.id("xIn"));
-    input.sendKeys("1");
-    input2.sendKeys("2");
-    input3.sendKeys("4");
-    input4.sendKeys("3");
-    input5.sendKeys("7");
+   WebElement input = driver.findElement(By.id("xIn"));
+   WebElement input2 = driver.findElement(By.id("xIn"));
+   WebElement input3 = driver.findElement(By.id("xIn"));
+   WebElement input4 = driver.findElement(By.id("xIn"));
+   WebElement input5 = driver.findElement(By.id("xIn"));
+   input.sendKeys("1");
+   input.submit();
+   Thread.sleep(5000);
+   input2.sendKeys("2");
+   input2.submit();
+   Thread.sleep(5000);
+   input3.sendKeys("4");
+   input3.submit();
+   Thread.sleep(5000);
+   input4.sendKeys("3");
+   input4.submit();
+   Thread.sleep(5000);
+   input5.sendKeys("7");
+   input5.submit();
+   Thread.sleep(5000);
 
-    WebElement result = driver.findElement(By.id("gameStatus"));
-    assertEquals("X wins!", result.getText());
+   WebElement result = driver.findElement(By.id("gameStatus"));
+   assertEquals("X wins!", result.getText());
   }
 }
