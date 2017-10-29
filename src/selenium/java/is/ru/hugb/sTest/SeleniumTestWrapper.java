@@ -20,23 +20,6 @@ public abstract class SeleniumTestWrapper {
     baseUrl = "https://dry-bastion-22033.herokuapp.com/";
   }
 
-  @Before
-  public void setUp() {
-    driver.get(baseUrl);
-    WebElement input = driver.findElement(By.id("xIn"));
-    WebElement message = driver.findElement(By.id("1"));
-    WebElement button = driver.findElement(By.id("resetGame"));
-    button.click();
-  }
-
-  @After
-  public void isEnd() {
-    Thread.sleep(5000);
-    input.sendKeys("1");
-    input.submit();
-    Thread.sleep(5000);
-    assertEquals("X", message.getText());
-  }
 
   @AfterClass
   public static void closeBrowser() {
