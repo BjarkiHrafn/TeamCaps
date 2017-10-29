@@ -40,7 +40,7 @@ buildscript {
 apply plugin: 'org.kordamp.markdown.convert'
 markdownToHtml {
 	sourceDir = file('/docs')
-	outputDir = file('/docs')
+	outputDir = file('/src/main/resources/public')
 }
 
 //SPOTLESS
@@ -77,4 +77,4 @@ task selenium(type: Test, dependsOn: installDist) {
 
   }
 
-//build.finalizedBy(selenium)
+build.finalizedBy(markdownToHtml)

@@ -3,6 +3,7 @@ $(document).ready(function() {
 		type: 'GET',
 		url: '/getTable',
 	}).done(function(result) {
+		$('#devman').load("Design_report.html");
 		if(result.length > 10){
 			for(var i = 0; i < 10; i++){
 				$('#' + (i + 1)).html(result.charAt(i)).attr('class', 'alert alert-success');
