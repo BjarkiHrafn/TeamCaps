@@ -1,6 +1,8 @@
 Design report
 =============
 
+> Continuous deployment achieved!
+> 
 > The initial design plan was a double layered system. As we are not using database for storing information in this simple project the traditional
 > triple layered design (UI->Business->Database) was dropped. We decided which functions we would need and how to store the game board
 > and drew everything up on a table. After a lot of brainstorming the results were as displayed in the class diagram below.
